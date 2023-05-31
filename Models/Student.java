@@ -7,10 +7,11 @@ public class Student {
     private int student_Id;
     private String name;
     private int employer_Id;
+    private int javaKnowing;
     private Employer employer;
     private List<Allocation> allocations = new ArrayList<>();
 
-    public Student(int student_Id, String name, int employer_Id){
+    public Student(int student_Id, String name, int employer_Id) {
         this.student_Id = student_Id;
         this.name = name;
         this.employer_Id = employer_Id;
@@ -40,15 +41,23 @@ public class Student {
         this.employer_Id = employer_Id;
     }
 
-    public Employer getEmployer(){
+    public int getJavaKnowing() {
+        return javaKnowing;
+    }
+
+    public void setJavaKnowing(int javaKnowing) {
+        this.javaKnowing = javaKnowing;
+    }
+
+    public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(Employer employer){
+    public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
-    public List<Allocation> getAllocationList(){
+    public List<Allocation> getAllocationList() {
         return allocations;
     }
 }
