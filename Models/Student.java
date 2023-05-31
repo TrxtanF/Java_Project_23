@@ -1,22 +1,22 @@
 package Models;
 
 public class Student {
-    private int Student_Id;
+    private int student_Id;
     private String name;
-    private int Employer_Id;
+    private int employer_Id;
 
-    public Student(int Student_Id, String name, int Employer_Id){
-        this.Student_Id = Student_Id;
+    public Student(int student_Id, String name, int employer_Id){
+        this.student_Id = student_Id;
         this.name = name;
-        this.Employer_Id = Employer_Id;
+        this.employer_Id = employer_Id;
     }
 
     public int getStudent_Id() {
-        return Student_Id;
+        return student_Id;
     }
 
     public void setStudent_Id(int student_Id) {
-        Student_Id = student_Id;
+        this.student_Id = student_Id;
     }
 
     public String getName() {
@@ -28,10 +28,10 @@ public class Student {
     }
 
     public int getEmployer_Id() {
-        return Employer_Id;
+        return employer_Id;
     }
 
     public void setEmployer_Id(int employer_Id) {
-        Employer_Id = employer_Id;
+        this.employer_Id = employer_Id;
     }
 }
