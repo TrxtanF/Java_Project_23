@@ -1,9 +1,14 @@
 package Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Allocation {
     private int allocation_Id;
     private int student_Id;
     private int course_Id;
+    private List<Student> students = new ArrayList<>();
+    private List<Course> courses = new ArrayList<>();
 
     public Allocation(int allocation_Id, int student_Id, int course_Id) {
         this.allocation_Id = allocation_Id;
@@ -33,5 +38,13 @@ public class Allocation {
 
     public void setCourse_Id(int course_Id) {
         this.course_Id = course_Id;
+    }
+
+    public List<Student> getStudentList() {
+        return students;
+    }
+
+    public List<Course> getCourseList(){
+        return courses;
     }
 }

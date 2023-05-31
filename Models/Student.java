@@ -1,9 +1,14 @@
 package Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Student {
     private int student_Id;
     private String name;
     private int employer_Id;
+    private Employer employer;
+    private List<Allocation> allocations = new ArrayList<>();
 
     public Student(int student_Id, String name, int employer_Id){
         this.student_Id = student_Id;
@@ -33,5 +38,17 @@ public class Student {
 
     public void setEmployer_Id(int employer_Id) {
         this.employer_Id = employer_Id;
+    }
+
+    public Employer getEmployer(){
+        return employer;
+    }
+
+    public void setEmployer(Employer employer){
+        this.employer = employer;
+    }
+
+    public List<Allocation> getAllocationList(){
+        return allocations;
     }
 }
