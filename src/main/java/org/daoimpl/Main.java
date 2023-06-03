@@ -16,6 +16,7 @@ public class Main {
         company.setConnection(tentativo.getConnection());
 
         company.getAll();
+        
 
     }
 }
