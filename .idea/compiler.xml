@@ -9,8 +9,5 @@
         <module name="Java_Interfaccia" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Java_Interfaccia" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>

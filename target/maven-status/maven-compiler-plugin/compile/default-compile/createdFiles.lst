@@ -1,5 +1,0 @@
-org\databaseutils\Main.class
-org\entity\Company.class
-org\entity\Course.class
-org\entity\Student.class
-org\dao\GenericDao.class
