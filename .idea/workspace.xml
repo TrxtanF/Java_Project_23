@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Add Java Knowing as int.">
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ddl.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +77,7 @@
       <workItem from="1686083799975" duration="254000" />
       <workItem from="1686128373108" duration="402000" />
       <workItem from="1686128783369" duration="258000" />
-      <workItem from="1686131973937" duration="242000" />
+      <workItem from="1686131973937" duration="617000" />
     </task>
     <task id="LOCAL-00001" summary="Create ReadMe">
       <created>1685444186930</created>
@@ -120,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685531590048</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table">
+      <created>1686132286652</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1686132286652</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +141,7 @@
     <MESSAGE value="Create Employer, Course and Allocation Model; Update Student Model" />
     <MESSAGE value="Update Models (create Lists for DB relationships)" />
     <MESSAGE value="Add Java Knowing as int." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Java Knowing as int." />
+    <MESSAGE value="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table" />
   </component>
 </project>
