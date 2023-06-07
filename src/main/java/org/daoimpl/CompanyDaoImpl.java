@@ -15,8 +15,12 @@ public class CompanyDaoImpl implements GenericDao <Company> {
 
 
     @Override
-    public void insert(Company company) {
-
+    public void insert(Company company) throws SQLException {
+        String companyName = company.getCompanyName();
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO company (company_name) VALUES (?)");
+        ps.setString(1, companyName);
+        boolean resultSet = ps.execute();
+        System.out.println(resultSet);
     }
 
     @Override

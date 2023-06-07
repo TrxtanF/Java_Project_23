@@ -6,15 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Add JavaSkills Attribute in Student Model.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/dao/GenericDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/daoimpl/CompanyDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/daoimpl/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/databaseutils/H2Utils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/entity/Allocation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/entity/Company.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/entity/Course.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/entity/Student.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/entity/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/GenericDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dao/GenericDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CompanyDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CompanyDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/dao/GenericDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/dao/GenericDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/daoimpl/CompanyDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/daoimpl/CompanyDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/daoimpl/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/daoimpl/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/entity/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/entity/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/entity/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/entity/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
