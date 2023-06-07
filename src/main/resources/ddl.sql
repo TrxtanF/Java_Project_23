@@ -1,5 +1,5 @@
 CREATE TABLE `company` (
-  `company_id` int NOT NULL,
+  `company_id` int NOT NULL AUTO_INCREMENT,
   `company_name` varchar(45) NOT NULL,
   PRIMARY KEY (`company_id`),
   UNIQUE KEY `company_name_UNIQUE` (`company_name`)
@@ -14,7 +14,7 @@ CREATE TABLE `course` (
 );
 
 CREATE TABLE `students` (
-  `students_id` int NOT NULL,
+  `students_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `company_fk` int NOT NULL,
   `java_skills` int NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE `students` (
 );
 
 CREATE TABLE `allocation` (
-  `allocation_id` int NOT NULL,
+  `allocation_id` int NOT NULL AUTO_INCREMENT,
   `student_fk` int NOT NULL,
   `course_fk` int NOT NULL,
   PRIMARY KEY (`allocation_id`),
