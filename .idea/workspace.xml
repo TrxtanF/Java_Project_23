@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table&#10;+ sql h2 besser lesen (Gianluca)">
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Add JavaSkills Attribute in Student Model.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/dao/GenericDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/daoimpl/CompanyDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/daoimpl/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/databaseutils/H2Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/entity/Allocation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/entity/Company.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/entity/Course.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/entity/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/entity/Test.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +84,7 @@
       <workItem from="1686083799975" duration="254000" />
       <workItem from="1686128373108" duration="402000" />
       <workItem from="1686128783369" duration="258000" />
-      <workItem from="1686131973937" duration="1107000" />
+      <workItem from="1686131973937" duration="1589000" />
     </task>
     <task id="LOCAL-00001" summary="Create ReadMe">
       <created>1685444186930</created>
@@ -134,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686132711414</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add JavaSkills Attribute in Student Model.">
+      <created>1686133408080</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686133408080</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +164,7 @@
     <MESSAGE value="Add Java Knowing as int." />
     <MESSAGE value="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table" />
     <MESSAGE value="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table&#10;+ sql h2 besser lesen (Gianluca)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table&#10;+ sql h2 besser lesen (Gianluca)" />
+    <MESSAGE value="Add JavaSkills Attribute in Student Model." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add JavaSkills Attribute in Student Model." />
   </component>
 </project>
