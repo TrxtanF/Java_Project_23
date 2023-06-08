@@ -4,12 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Added insert method in &quot;CompanyDaoImpl&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/dao/IStudent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" afterDir="false" />
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Implements for every table the DaoImpl, changed the Different Interfaces to the Generic, added Testing cases to test the DaoImpl.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/Testing/AllocationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/Testing/CompanyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/Testing/CourseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/Testing/StudentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/AllocationDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/GenericDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/dao/GenericDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/dao/IStudent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CompanyDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CompanyDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/dao/GenericDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/dao/GenericDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/daoimpl/CompanyDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/daoimpl/CompanyDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/daoimpl/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/daoimpl/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/entity/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/entity/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +93,8 @@
       <workItem from="1686128373108" duration="402000" />
       <workItem from="1686128783369" duration="258000" />
       <workItem from="1686131973937" duration="1589000" />
-      <workItem from="1686151687409" duration="5891000" />
+      <workItem from="1686151687409" duration="8742000" />
+      <workItem from="1686220536672" duration="12276000" />
     </task>
     <task id="LOCAL-00001" summary="Create ReadMe">
       <created>1685444186930</created>
@@ -153,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686138956562</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added Class &quot;IStudent&quot; and &quot;StudentDaoImpl&quot;.&#10;Tested them in the main Method.">
+      <created>1686157712650</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686157712650</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +190,8 @@
     <MESSAGE value="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table&#10;+ sql h2 besser lesen (Gianluca)" />
     <MESSAGE value="Add JavaSkills Attribute in Student Model." />
     <MESSAGE value="Added insert method in &quot;CompanyDaoImpl&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added insert method in &quot;CompanyDaoImpl&quot;" />
+    <MESSAGE value="Added Class &quot;IStudent&quot; and &quot;StudentDaoImpl&quot;.&#10;Tested them in the main Method." />
+    <MESSAGE value="Implements for every table the DaoImpl, changed the Different Interfaces to the Generic, added Testing cases to test the DaoImpl." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements for every table the DaoImpl, changed the Different Interfaces to the Generic, added Testing cases to test the DaoImpl." />
   </component>
 </project>
