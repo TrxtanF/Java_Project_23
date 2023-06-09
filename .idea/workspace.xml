@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Implements for every table the DaoImpl, changed the Different Interfaces to the Generic, added Testing cases to test the DaoImpl.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/AllocationCheck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/CompanyCheck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/CourseCheck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/StudentCheck.java" afterDir="false" />
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Create classes that checks whether the user input is valid.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/daoimpl/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/daoimpl/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/InputCheck/StudentCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/StudentCheck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +80,7 @@
       <workItem from="1686131973937" duration="1589000" />
       <workItem from="1686151687409" duration="8742000" />
       <workItem from="1686220536672" duration="12368000" />
-      <workItem from="1686300272540" duration="9879000" />
+      <workItem from="1686300272540" duration="10717000" />
     </task>
     <task id="LOCAL-00001" summary="Create ReadMe">
       <created>1685444186930</created>
@@ -170,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686239242657</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Create classes that checks whether the user input is valid.">
+      <created>1686310823925</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1686310823925</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +192,7 @@
     <MESSAGE value="Added insert method in &quot;CompanyDaoImpl&quot;" />
     <MESSAGE value="Added Class &quot;IStudent&quot; and &quot;StudentDaoImpl&quot;.&#10;Tested them in the main Method." />
     <MESSAGE value="Implements for every table the DaoImpl, changed the Different Interfaces to the Generic, added Testing cases to test the DaoImpl." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements for every table the DaoImpl, changed the Different Interfaces to the Generic, added Testing cases to test the DaoImpl." />
+    <MESSAGE value="Create classes that checks whether the user input is valid." />
+    <option name="LAST_COMMIT_MESSAGE" value="Create classes that checks whether the user input is valid." />
   </component>
 </project>

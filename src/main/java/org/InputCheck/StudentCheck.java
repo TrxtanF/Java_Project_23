@@ -68,8 +68,12 @@ public class StudentCheck {
 
     private boolean check(Student student){
         //Check user input
+        if(student.getName().length() >= 50){
+            validationProblem = "Der Name darf maximal aus 50 Zeichen bestehen.";
+            return false;
+        }
         if (!student.getName().trim().matches("[a-zA-Z ]+")){
-            validationProblem = "Der Name des Studenten darf nur aus Buchstaben bestehen.";
+            validationProblem = "Der Name darf nur aus Buchstaben bestehen.";
             return false;
         }
         if (student.getJavaSkills() < 1 || student.getJavaSkills() > 10){
