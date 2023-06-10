@@ -1,0 +1,99 @@
+
+/* navigation */
+
+.logo-img{
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 30px
+}
+
+
+
+
+
+/* filter + searchbar + add */
+
+
+.filter_searchbar_add{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    align-items: center;
+    justify-content:center;
+    gap: 15rem;
+}
+
+
+/*  filter button  */
+
+.filter_svg{
+height: 35px;
+}
+
+.filter_button:hover{
+    cursor: pointer;
+}
+
+/*  searchbar  */
+
+.search_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_bar_element{
+    height:35px;
+    width: 25rem;
+}
+
+.search_button{
+    height: 38px;
+    margin-left: 10px;
+    width: 38px;
+}
+
+.search_svg{
+    height: 18px
+}
+
+/*  add studetnt */
+
+.add_student_button{
+  transition: content 0.3s;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background-color:  #4CBB17;
+  border: none;
+  border-radius: 10px;
+}
+
+.add_student_button:hover,
+.add_student_button:focus,
+.add_student_button:active{
+  background-color: #5ec22e;
+  cursor: pointer;
+  box-shadow: 1px 1px 8px #888888;
+}
+
+
+/* display screen */
+
+.display_screen{
+    margin-top: 50px;
+    height: 40rem;
+    width: 80rem;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+

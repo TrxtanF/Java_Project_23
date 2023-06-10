@@ -17,8 +17,7 @@ public class Main {
 
         company.setConnection(tentativo.getConnection());
 
-        company.getAll();
-        company.insert(new Company(1, "ABB"));
-        company.getAll();
+
+        System.out.println(company.getAll().size());
     }
 }

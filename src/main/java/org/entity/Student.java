@@ -1,21 +1,21 @@
 package org.entity;
 
 public class Student {
-    private int studentsId;
+    private int studentId;
     private String name;
     private int javaSkills;
     private int companyFk;
 
 
-    public Student(int studentsId, String name, int javaSkills, int companyFk) {
-        this.studentsId = studentsId;
+    public Student(int studentId, String name, int javaSkills, int companyFk) {
+        this.studentId = studentId;
         this.name = name;
         this.javaSkills = javaSkills;
         this.companyFk = companyFk;
     }
 
-    public int getStudentsId() {
-        return studentsId;
+    public int getStudentId() {
+        return studentId;
     }
 
     public String getName() {
@@ -26,8 +26,8 @@ public class Student {
         return companyFk;
     }
 
-    public void setStudentsId(int studentsId) {
-        this.studentsId = studentsId;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public void setName(String name) {

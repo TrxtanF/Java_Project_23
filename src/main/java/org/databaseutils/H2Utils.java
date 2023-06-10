@@ -26,10 +26,12 @@ public class H2Utils {
 
             try {
                 this.connection = DriverManager.getConnection(url);
-
                 System.out.println("Database connected! =" + connection.isValid(0));
+                System.out.println("Try insertion into database");
+
             } catch (SQLException e) {
                 throw new IllegalStateException("Cannot connect the database!", e);
+
             }
         }
     }

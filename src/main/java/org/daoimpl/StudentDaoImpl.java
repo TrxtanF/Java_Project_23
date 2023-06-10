@@ -16,12 +16,12 @@ public class StudentDaoImpl implements GenericDao<Student> {
     /**
      * Summary:
      * insert(Student student) gets an object from type student and insert the
-     * attributes into the columns in the students table.
+     * attributes into the columns in the student table.
      */
     @Override
     public void insert(Student student) throws SQLException {
         //SQL-Query
-        String query = "INSERT INTO students (name, java_skills, company_fk) VALUES (?,?,?)";
+        String query = "INSERT INTO student (name, java_skills, company_fk) VALUES (?,?,?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, student.getName());
         ps.setInt(2, student.getJavaSkills());
@@ -34,7 +34,7 @@ public class StudentDaoImpl implements GenericDao<Student> {
 
     /**
      * Summary:
-     * getAll() returns a List<Student> of all rows in the students table.
+     * getAll() returns a List<Student> of all rows in the student table.
      * Every row is one object in the list.
      */
     @Override
@@ -42,14 +42,14 @@ public class StudentDaoImpl implements GenericDao<Student> {
         List<Student> list = new ArrayList<>();
 
         //SQL-Query
-        String query = "SELECT * FROM students";
+        String query = "SELECT * FROM student";
         PreparedStatement ps = connection.prepareStatement(query);
         ResultSet resultSet = ps.executeQuery();
 
         //Read Data
         while (resultSet.next()) {
             //Get Data from ResultSet
-            int studentId = resultSet.getInt("students_id");
+            int studentId = resultSet.getInt("student_id");
             String name = resultSet.getString("name");
             int javaSkills = resultSet.getInt("java_skills");
             int companyFk = resultSet.getInt("company_fk");
@@ -73,7 +73,7 @@ public class StudentDaoImpl implements GenericDao<Student> {
     @Override
     public void deleteById(int id) throws SQLException {
         //SQL-Query
-        String query = "DELETE FROM students WHERE students_id = ?";
+        String query = "DELETE FROM student WHERE student_id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, id);
         ps.executeUpdate();
@@ -90,7 +90,7 @@ public class StudentDaoImpl implements GenericDao<Student> {
     @Override
     public void updateById(int id, Student student) throws SQLException {
         //SQL-Query
-        String query = "UPDATE students SET name = ?, java_skills = ?, company_fk = ? WHERE students_id = ?";
+        String query = "UPDATE student SET name = ?, java_skills = ?, company_fk = ? WHERE student_id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, student.getName());
         ps.setInt(2, student.getJavaSkills());

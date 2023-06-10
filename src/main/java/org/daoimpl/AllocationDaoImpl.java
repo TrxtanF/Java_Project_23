@@ -31,6 +31,7 @@ public class AllocationDaoImpl implements GenericDao<Allocation> {
      * getAll() returns a List<Allocation> of all the rows in the allocation table.
      * Every row is one object in the list.
      */
+
     @Override
     public List<Allocation> getAll() throws SQLException {
         List<Allocation> list = new ArrayList<>();

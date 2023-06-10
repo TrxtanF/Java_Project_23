@@ -13,12 +13,12 @@ CREATE TABLE `course` (
   UNIQUE KEY `subject_UNIQUE` (`subject`)
 );
 
-CREATE TABLE `students` (
-  `students_id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `student` (
+  `student_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `company_fk` int NOT NULL,
   `java_skills` int NOT NULL,
-  PRIMARY KEY (`students_id`),
+  PRIMARY KEY (`student_id`),
   KEY `company_fk_idx` (`company_fk`),
   CONSTRAINT `company_fk` FOREIGN KEY (`company_fk`) REFERENCES `company` (`company_id`)
 );
@@ -31,7 +31,7 @@ CREATE TABLE `allocation` (
   KEY `student_fk_idx` (`student_fk`),
   KEY `course_fk_idx` (`course_fk`),
   CONSTRAINT `course_fk` FOREIGN KEY (`course_fk`) REFERENCES `course` (`course_id`),
-  CONSTRAINT `student_fk` FOREIGN KEY (`student_fk`) REFERENCES `students` (`students_id`)
+  CONSTRAINT `student_fk` FOREIGN KEY (`student_fk`) REFERENCES `student` (`student_id`)
 );
 
 CREATE TABLE `test` (

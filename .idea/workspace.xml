@@ -4,9 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Create classes that checks whether the user input is valid.">
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Added insert method in &quot;CompanyDaoImpl&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/webapp/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/webapp/img/DHBW-Logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/webapp/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/webapp/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlTestEntries.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/InputCheck/StudentCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/StudentCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/AllocationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/AllocationDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/databaseutils/H2Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/databaseutils/H2Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-properties.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ddl.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/dao/GenericDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/daoimpl/CompanyDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/daoimpl/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/databaseutils/H2Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/entity/Allocation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/entity/Company.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/entity/Course.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/entity/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/entity/Test.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,27 +51,39 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2QVfR2im5fwv81a3i1KCncjcwDR" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Projekte/Java_Project_23&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Projekte/Java_Project_23",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Win\IdeaProjects\Java_Project_23\src\main\java\webapp\img" />
+      <recent name="C:\Users\Win\IdeaProjects\Java_Project_23\src\main\java\webapp\css" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Java_Project_23" />
@@ -78,9 +113,7 @@
       <workItem from="1686128373108" duration="402000" />
       <workItem from="1686128783369" duration="258000" />
       <workItem from="1686131973937" duration="1589000" />
-      <workItem from="1686151687409" duration="8742000" />
-      <workItem from="1686220536672" duration="12368000" />
-      <workItem from="1686300272540" duration="10717000" />
+      <workItem from="1686151687409" duration="5891000" />
     </task>
     <task id="LOCAL-00001" summary="Create ReadMe">
       <created>1685444186930</created>
@@ -152,28 +185,7 @@
       <option name="project" value="LOCAL" />
       <updated>1686138956562</updated>
     </task>
-    <task id="LOCAL-00011" summary="Added Class &quot;IStudent&quot; and &quot;StudentDaoImpl&quot;.&#10;Tested them in the main Method.">
-      <created>1686157712650</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1686157712650</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Implements for every table the DaoImpl, changed the Different Interfaces to the Generic, added Testing cases to test the DaoImpl.">
-      <created>1686239242657</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1686239242657</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Create classes that checks whether the user input is valid.">
-      <created>1686310823925</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1686310823925</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,9 +202,6 @@
     <MESSAGE value="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table&#10;+ sql h2 besser lesen (Gianluca)" />
     <MESSAGE value="Add JavaSkills Attribute in Student Model." />
     <MESSAGE value="Added insert method in &quot;CompanyDaoImpl&quot;" />
-    <MESSAGE value="Added Class &quot;IStudent&quot; and &quot;StudentDaoImpl&quot;.&#10;Tested them in the main Method." />
-    <MESSAGE value="Implements for every table the DaoImpl, changed the Different Interfaces to the Generic, added Testing cases to test the DaoImpl." />
-    <MESSAGE value="Create classes that checks whether the user input is valid." />
-    <option name="LAST_COMMIT_MESSAGE" value="Create classes that checks whether the user input is valid." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added insert method in &quot;CompanyDaoImpl&quot;" />
   </component>
 </project>
