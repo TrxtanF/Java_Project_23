@@ -130,11 +130,9 @@ height: 35px;
       right:0px;
       width: 30px;
       cursor: pointer;
-      background-color: #cc4b4c;
+      background-color: #a6aaa9;
       border: none;
-      border-radius: 0 0  0 6px;
-      border-bottom : 1px solid black;
-      border-left: 1px solid grey;
+      border-radius: 0 0 0 3px;
     }
 
 .close_btn:hover{

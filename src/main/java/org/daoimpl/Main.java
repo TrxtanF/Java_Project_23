@@ -18,6 +18,6 @@ public class Main {
         company.setConnection(tentativo.getConnection());
 
 
-        System.out.println(company.getAll().size());
+        System.out.println("Elements inserted: " + company.getAll().size());
     }
 }
