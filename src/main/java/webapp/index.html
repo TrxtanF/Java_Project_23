@@ -28,13 +28,32 @@
         </form>
     </div>
     <div class="add_student">
-       <button class="add_student_button">
+       <button class="add_student_button" onclick="openPopup()">
            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg>
            <span class="add_student_span">Add Student</span>
        </button>
     </div>
 
 </div>
+
+    <div id="add-student-popup" class="add_student_popup">
+        <button class="close_btn" onclick="closePopup()"><svg class="close_btn_svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
+        <div class="input_field">
+        <div class="field">
+        <label class="label_element" for="name">Name:</label>
+        <input class="input_element" type="text" id="name">
+        </div>
+        <div class="field">
+        <label class="label_element" for="kurs">Kurs:</label>
+        <input class="input_element" type="text" id="kurs">
+        </div>
+        <div class="field">
+        <label class="label_element" for="slider">Java Skills: <span id="slider-value">5</span></label>
+        <input class="input_element" type="range" id="slider" min="0" max="10" step="1" value="5" oninput="updateSliderValue(this.value)">
+        </div>
+            <button onclick="submitForm()">Add</button>
+        </div>
+    </div>
 
     <div class="display_screen">
 
