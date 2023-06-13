@@ -34,13 +34,19 @@ public class MainApp extends Application {
         gridPane.add(courseLabel, 0, 1);
         gridPane.add(courseTextField, 1, 1);
 
+        // Company
+        Label companyLabel = new Label("Company:");
+        TextField companyTextField = new TextField();
+        gridPane.add(companyLabel, 0, 2);
+        gridPane.add(companyTextField, 1, 2);
+
         //Java Skills
         Label skillLabel = new Label("Java Skills:");
         Slider skillSlider = new Slider(0, 10, 0);
         skillSlider.setShowTickLabels(true);
         skillSlider.setShowTickMarks(true);
-        gridPane.add(skillLabel, 0, 2);
-        gridPane.add(skillSlider, 1, 2);
+        gridPane.add(skillLabel, 0, 3);
+        gridPane.add(skillSlider, 1, 3);
 
         // Slider view
         Label sliderValueLabel = new Label("0");
@@ -52,7 +58,7 @@ public class MainApp extends Application {
         });
 
         // value
-        gridPane.add(sliderValueLabel, 2, 2);
+        gridPane.add(sliderValueLabel, 2, 3);
 
 
         // add button
@@ -72,7 +78,7 @@ public class MainApp extends Application {
             courseTextField.clear();
             skillSlider.setValue(0);
         });
-        gridPane.add(addButton, 1, 3);
+        gridPane.add(addButton, 1, 4);
 
         Scene scene = new Scene(gridPane, 400, 200);
         primaryStage.setScene(scene);
