@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Added insert method in &quot;CompanyDaoImpl&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx/MainControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/javafx.fxml" afterDir="false" />
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Java fx basiic structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/application/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +25,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f7cb1be8-af13-4723-9b45-d623f7ee2a1b" />
+        <option name="url" value="https://github.com/TrxtanF/Java_Project_23.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -41,20 +51,24 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "H:/MATERIALE DHBW STUDIO/Java/openjfx-17.0.7_windows-x64_bin-sdk/javafx-sdk-17.0.7/lib",
+    "last_opened_file_path": "H:/MATERIALE DHBW STUDIO/Java/JavaVorlesung23_Workspace/JavaVorlesung23/JavaFXLogin",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.2045977",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
@@ -67,14 +81,29 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn javafx:run" />
     </option>
   </component>
   <component name="RunManager" selected="Application.main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.daoimpl.Main" />
+      <module name="Java_Interfaccia" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.daoimpl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="application.javafx.MainApp" />
       <module name="Java_Interfaccia" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;H:\MATERIALE DHBW STUDIO\Java\openjfx-17.0.7_windows-x64_bin-sdk\javafx-sdk-17.0.7\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;H:\java\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -104,8 +133,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.main" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="Remote JVM Debug.Unnamed" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -193,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686138956562</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Java fx basiic structure">
+      <created>1686616435077</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686616435077</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +252,7 @@
     <MESSAGE value="Add Auto_Increment to primary key in &quot;company&quot;, &quot;student&quot; and &quot;allocation&quot; table&#10;+ sql h2 besser lesen (Gianluca)" />
     <MESSAGE value="Add JavaSkills Attribute in Student Model." />
     <MESSAGE value="Added insert method in &quot;CompanyDaoImpl&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added insert method in &quot;CompanyDaoImpl&quot;" />
+    <MESSAGE value="Java fx basiic structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Java fx basiic structure" />
   </component>
 </project>
