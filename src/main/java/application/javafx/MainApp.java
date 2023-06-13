@@ -13,68 +13,73 @@ import java.io.IOException;
 
 public class MainApp extends Application {
 
-    private static final String USER_NAME = "Sebastian";
-    private static final String PASSWORD = "SUPERSICHER!!!";
-    private Label lbName;
-    private Label lbPasswort;
-    private TextField tfName;
-    private PasswordField passwordField;
-    private Button btLogin;
-    private GridPane gridPane;
-
     @Override
-    public void start(Stage stage) throws IOException {
-        lbName = new Label("Name:");
-        lbPasswort = new Label("Passwort:");
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Add Student");
 
-        tfName = new TextField();
-        passwordField = new PasswordField();
-
-        buildLoginButton();
-        buildGrid();
-
-        Scene scene = new Scene(gridPane);
-        stage.setTitle("JavaFX Login");
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    private void buildGrid() {
-        gridPane = new GridPane();
-        gridPane.add(lbName, 0, 0);
-        gridPane.add(tfName, 1, 0);
-        gridPane.add(lbPasswort, 0, 1);
-        gridPane.add(passwordField, 1, 1);
-        gridPane.add(btLogin, 0, 2, 2, 1);
-        gridPane.setVgap(10);
+        GridPane gridPane = new GridPane();
+        gridPane.setPadding(new Insets(20));
         gridPane.setHgap(10);
-        gridPane.setPadding(new Insets(10));
-//        gridPane.setGridLinesVisible(true);
-    }
+        gridPane.setVgap(10);
 
-    private void buildLoginButton() {
-        btLogin = new Button("Login");
-        btLogin.setMinWidth(150);
-        btLogin.setOnAction(loginAction());
-    }
+        // Student Name
+        Label nameLabel = new Label("Name:");
+        TextField nameTextField = new TextField();
+        gridPane.add(nameLabel, 0, 0);
+        gridPane.add(nameTextField, 1, 0);
 
-    private EventHandler<ActionEvent> loginAction() {
-        return actionEvent -> {
-            String inputName = tfName.getText();
-            String inputPassword = passwordField.getText();
+        // Kurs
+        Label courseLabel = new Label("Course:");
+        TextField courseTextField = new TextField();
+        gridPane.add(courseLabel, 0, 1);
+        gridPane.add(courseTextField, 1, 1);
 
-            if (USER_NAME.equals(inputName) && PASSWORD.equals(inputPassword)) {
-                new Alert(Alert.AlertType.INFORMATION, "Erfolgreich eingelogt :)").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Name/Passwort sind falsch").show();
-            }
-        };
+        //Java Skills
+        Label skillLabel = new Label("Java Skills:");
+        Slider skillSlider = new Slider(0, 10, 0);
+        skillSlider.setShowTickLabels(true);
+        skillSlider.setShowTickMarks(true);
+        gridPane.add(skillLabel, 0, 2);
+        gridPane.add(skillSlider, 1, 2);
+
+        // Slider view
+        Label sliderValueLabel = new Label("0");
+        sliderValueLabel.setStyle("-fx-font-size: 14px;");
+
+    // slider update
+        skillSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            sliderValueLabel.setText(String.valueOf(newValue.intValue()));
+        });
+
+        // value
+        gridPane.add(sliderValueLabel, 2, 2);
+
+
+        // add button
+        Button addButton = new Button("Add");
+        addButton.setOnAction(e -> {
+            String name = nameTextField.getText();
+            String course = courseTextField.getText();
+            int skillLevel = (int) skillSlider.getValue();
+
+            // new student object
+            Student student = new Student(name, course, skillLevel);
+
+
+
+            // after add
+            nameTextField.clear();
+            courseTextField.clear();
+            skillSlider.setValue(0);
+        });
+        gridPane.add(addButton, 1, 3);
+
+        Scene scene = new Scene(gridPane, 400, 200);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
-        launch();
-    }
-
-    public void onHelloButtonClick(ActionEvent actionEvent) {
+        launch(args);
     }
 }

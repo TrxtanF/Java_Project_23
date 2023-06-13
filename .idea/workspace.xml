@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Java fx basiic structure">
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,6 +75,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="application.javafx" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Win\IdeaProjects\Java_Project_23\src\main\java\webapp\img" />
       <recent name="C:\Users\Win\IdeaProjects\Java_Project_23\src\main\java\webapp\css" />
