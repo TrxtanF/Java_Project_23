@@ -7,7 +7,7 @@ CREATE TABLE `company` (
 
 CREATE TABLE `room` (
   `room_id` int NOT NULL AUTO_INCREMENT,
-  `room_name` int NOT NULL,
+  `room_name` varchar(50) NOT NULL,
   PRIMARY KEY (`room_id`),
   UNIQUE KEY `room_name_UNIQUE` (`room_name`)
 );
