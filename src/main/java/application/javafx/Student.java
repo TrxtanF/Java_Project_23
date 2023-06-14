@@ -1,10 +1,18 @@
 package application.javafx;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
+
 public class Student {
     private String name;
     private String course;
     private String company;
     private int javaSkill;
+
+    private int id;
+
+    private int companyid;
 
     public Student(String name, String course, String company, int javaSkill) {
         this.name = name;
@@ -43,6 +51,14 @@ public class Student {
 
     public void setJavaSkill(int javaSkill) {
         this.javaSkill = javaSkill;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public int getCompanyId() {
+        return this.companyid;
     }
 }
 
