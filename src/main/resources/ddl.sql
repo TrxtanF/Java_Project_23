@@ -5,12 +5,21 @@ CREATE TABLE `company` (
   UNIQUE KEY `company_name_UNIQUE` (`company_name`)
 );
 
+CREATE TABLE `room` (
+  `room_id` int NOT NULL AUTO_INCREMENT,
+  `room_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`room_id`),
+  UNIQUE KEY `room_name_UNIQUE` (`room_name`)
+);
+
 CREATE TABLE `course` (
   `course_id` int NOT NULL AUTO_INCREMENT,
   `subject` varchar(50) NOT NULL,
-  `room` varchar(50) NOT NULL,
+  `room_fk` varchar(50) NOT NULL,
   PRIMARY KEY (`course_id`),
   UNIQUE KEY `subject_UNIQUE` (`subject`)
+  KEY `room_fk_idx` (`room_fk`),
+  CONSTRAINT `room_fk` FOREIGN KEY (`room_fk`) REFERENCES `room` (`room_id`)
 );
 
 CREATE TABLE `student` (
