@@ -3,12 +3,12 @@ package org.entity;
 public class Course {
     private int courseId;
     private String subject;
-    private String room;
+    private int roomFk;
 
-    public Course(int courseId, String subject, String room) {
+    public Course(int courseId, String subject, int roomFk) {
         this.courseId = courseId;
         this.subject = subject;
-        this.room = room;
+        this.roomFk = roomFk;
     }
 
     public int getCourseId() {
@@ -19,8 +19,8 @@ public class Course {
         return subject;
     }
 
-    public String getRoom() {
-        return room;
+    public int getRoomFk() {
+        return roomFk;
     }
 
     public void setCourseId(int courseId) {
@@ -31,7 +31,7 @@ public class Course {
         this.subject = subject;
     }
 
-    public void setRoom(String room) {
-        this.room = room;
+    public void setRoomFk(int roomFk) {
+        this.roomFk = roomFk;
     }
 }

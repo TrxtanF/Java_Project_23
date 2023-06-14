@@ -1,11 +1,10 @@
 package org.entity;
 
 public class Room {
-
     private int roomid;
-    private int room;
+    private String room;
 
-    public Room(int roomid, int room) {
+    public Room(int roomid, String room) {
         this.roomid = roomid;
         this.room = room;
     }
@@ -14,15 +13,11 @@ public class Room {
         return roomid;
     }
 
-    public int getRoom() {
+    public String getRoom() {
         return room;
     }
 
-    public void setRoomid(int roomid) {
-        this.roomid = roomid;
-    }
-
-    public void setRoom(int room) {
+    public void setRoom(String room) {
         this.room = room;
     }
 }

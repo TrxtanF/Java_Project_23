@@ -20,7 +20,7 @@ public class StudentTest {
         StudentDaoImpl studentDao = new StudentDaoImpl();
         studentDao.setConnection(db.getConnection());
 
-        companyDao.insert(new Company(1, "ABB"));
+        companyDao.insert(new Company(5, "DB Systel"));
 
         /////////
 
@@ -28,7 +28,7 @@ public class StudentTest {
             System.out.println("The database is empty");
         }
 
-        Student student = new Student(1, "Tristan Finke", 7, 1);
+        Student student = new Student(5, "Tristan Finke", 7, 1);
         studentDao.insert(student);
         if (studentDao.getAll().size() == 1) {
             List<Student> list = studentDao.getAll();
@@ -44,7 +44,7 @@ public class StudentTest {
             }
         }
 
-        int id = 1;
+        int id = 5;
         Student updatedStudent = new Student(id, "Tristan Finke", 5, 1);
         studentDao.updateById(id, updatedStudent);
         if (studentDao.getAll().size() == 1) {

@@ -21,10 +21,10 @@ public class CourseDaoImpl implements GenericDao<Course> {
     @Override
     public void insert(Course course) throws SQLException {
         //SQL-Query
-        String query = "INSERT INTO course (subject, room) VALUES (?,?)";
+        String query = "INSERT INTO course (subject, room_fk) VALUES (?,?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, course.getSubject());
-        ps.setString(2, course.getRoom());
+        ps.setInt(2, course.getRoomFk());
         ps.executeUpdate();
 
         //Free resources
@@ -50,10 +50,10 @@ public class CourseDaoImpl implements GenericDao<Course> {
             //Get Data from ResultSet
             int courseId = resultSet.getInt("course_id");
             String subject = resultSet.getString("subject");
-            String room = resultSet.getString("room");
+            int roomFk = resultSet.getInt("room_fk");
 
             //Create Course object
-            Course course = new Course(courseId, subject, room);
+            Course course = new Course(courseId, subject, roomFk);
             list.add(course);
         }
 
@@ -88,10 +88,10 @@ public class CourseDaoImpl implements GenericDao<Course> {
     @Override
     public void updateById(int id, Course course) throws SQLException {
         //SQL-Query
-        String query = "UPDATE course SET subject = ?, room = ? WHERE course_id = ?";
+        String query = "UPDATE course SET subject = ?, room_fk = ? WHERE course_id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, course.getSubject());
-        ps.setString(2, course.getRoom());
+        ps.setInt(2, course.getRoomFk());
         ps.setInt(3, id);
         ps.executeUpdate();
 

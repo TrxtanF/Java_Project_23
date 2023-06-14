@@ -1,7 +1,7 @@
 package org.InputCheck;
 
-import org.daoimpl.CourseDaoImpl;
-import org.entity.Course;
+import org.daoimpl.RoomDaoImpl;
+import org.entity.Room;
 
 import java.sql.SQLException;
 
@@ -9,8 +9,8 @@ import java.sql.SQLException;
  * This class checks the user input. If this is correct, the command is to be executed on the database.
  * If this is not correct, an error is returned.
  */
-public class CourseCheck {
-    private CourseDaoImpl courseDao = new CourseDaoImpl();
+public class RoomCheck {
+    private RoomDaoImpl roomDao = new RoomDaoImpl();
     private String validationProblem = "";
 
     public String getValidationProblem() {
@@ -21,12 +21,12 @@ public class CourseCheck {
      * Checks if the user input is correct.
      * If it is not, it returns false and give a detailed validation Error.
      */
-    public boolean insert(Course course) throws SQLException {
-        //Checks user input
-        if (!check(course)) return false;
+    public boolean insert(Room room) throws SQLException {
+        //Check user Input
+        if(!check(room))return false;
 
-        // Insert course
-        courseDao.insert(course);
+        //Insert room
+        roomDao.insert(room);
 
         return true;
     }
@@ -37,14 +37,13 @@ public class CourseCheck {
      */
     public boolean deleteById(int id) throws SQLException {
         //Check user input
-        if (id < 1) {
+        if(id < 1){
             validationProblem = "Die Id muss größer als 0 sein.";
             return false;
         }
 
-        //Delete Course
-        courseDao.deleteById(id);
-
+        //Delete room
+        roomDao.deleteById(id);
         return true;
     }
 
@@ -52,32 +51,32 @@ public class CourseCheck {
      * Checks whether the user input is valid
      * If it is not, it returns false and give a detailed validation Error
      */
-    public boolean updateById(int id, Course course) throws SQLException {
+    public boolean updateById(int id, Room room) throws SQLException {
         //Check user Input
-        if (!check(course)) return false;
-        if (id < 1) {
+        if(!check(room))return false;
+        if(id<1){
             validationProblem = "Die Id muss größer als 0 sein.";
             return false;
         }
 
-        //update Course
-        courseDao.updateById(id, course);
-
+        //update Room
+        roomDao.updateById(id, room);
         return true;
     }
 
-    private boolean check(Course course) {
-        //Check user input
-        if (!course.getSubject().trim().matches(".*[a-zA-Z].*")) {
-            validationProblem = "Die Kursbezeichnung muss mindestend aus Buchstaben bestehen und darf darüber hinaus maximal noch Zahlen beinhalten.";
+    private boolean check(Room room) {
+        if (room.getRoom().length() != 4) {
+            validationProblem = "Die Raumangabe muss vier Zeichen lang sein.";
             return false;
         }
-        if (course.getRoomFk() < 1) {
-            validationProblem = "Die RoomId muss größer 0 sein";
+        if (!Character.toString(room.getRoom().charAt(3)).matches("^[A-E]+$")) {
+            validationProblem = "Das vierte Zeichen der Raumbezeichung muss ein Gebäude an der DHBW sein (A, B, C, D, E).";
             return false;
         }
-
-
+        if (!room.getRoom().substring(0, 3).trim().matches("^[0-9]+$")) {
+            validationProblem = "Die ersten drei Zeichen müssen Zahlen sein, für Etage und Raumnummer.";
+            return false;
+        }
         return true;
     }
 }
