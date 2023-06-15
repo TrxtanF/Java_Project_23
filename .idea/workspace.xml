@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="New database structure fixed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/RoomCheck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/Testing/RoomTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/RoomDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/InputCheck/CourseCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/CourseCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/AllocationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Testing/AllocationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/CourseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Testing/CourseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/StudentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Testing/StudentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Room.java" afterDir="false" />
-    </list>
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="New database structure fixed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -328,11 +316,29 @@
       <option name="project" value="LOCAL" />
       <updated>1686757040458</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="database-java fx try">
+      <created>1686842478128</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1686842478128</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create ReadMe" />
@@ -348,6 +354,7 @@
     <MESSAGE value="Java fx basiic structure" />
     <MESSAGE value="New database structure" />
     <MESSAGE value="New database structure fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="New database structure fixed" />
+    <MESSAGE value="database-java fx try" />
+    <option name="LAST_COMMIT_MESSAGE" value="database-java fx try" />
   </component>
 </project>
