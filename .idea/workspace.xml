@@ -5,21 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="New database structure fixed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/TetraAssociationImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/entity/TetraAssociation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/RoomCheck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/Testing/RoomTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/RoomDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/StudentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/StudentManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/AllocationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/AllocationDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CompanyDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CompanyDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/InputCheck/CourseCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/CourseCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/AllocationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Testing/AllocationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/CourseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Testing/CourseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/StudentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Testing/StudentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/RoomDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/RoomDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,13 +105,65 @@
       <command value="mvn javafx:run" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.main">
+  <component name="RunManager" selected="Application.StudentTest">
+    <configuration name="CompanyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Testing.CompanyTest" />
+      <module name="Java_Interfaccia" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Testing.CourseTest" />
+      <module name="Java_Interfaccia" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.daoimpl.Main" />
       <module name="Java_Interfaccia" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.daoimpl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoomTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Testing.RoomTest" />
+      <module name="Java_Interfaccia" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Testing.StudentTest" />
+      <module name="Java_Interfaccia" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Testing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,11 +204,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.main" />
+      <item itemvalue="Application.CompanyTest" />
+      <item itemvalue="Application.CourseTest" />
+      <item itemvalue="Application.RoomTest" />
+      <item itemvalue="Application.StudentTest" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Remote JVM Debug.Unnamed" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StudentTest" />
+        <item itemvalue="Application.CourseTest" />
+        <item itemvalue="Application.RoomTest" />
+        <item itemvalue="Application.CompanyTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
