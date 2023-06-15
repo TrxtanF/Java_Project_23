@@ -1,10 +1,7 @@
 package application.javafx;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 
-
-public class Student {
+public class StudentTow {
     private String name;
     private String course;
     private String company;
@@ -14,7 +11,7 @@ public class Student {
 
     private int companyid;
 
-    public Student(String name, String course, String company, int javaSkill) {
+    public StudentTow(String name, String course, String company, int javaSkill) {
         this.name = name;
         this.course = course;
         this.company = company;

@@ -104,23 +104,4 @@ public class CompanyDaoImpl implements GenericDao<Company> {
         this.connection = connection;
     }
 
-    @Override
-    public void create(Company student) {
-
-    }
-
-    @Override
-    public Company getById(int id) {
-        return null;
-    }
-
-    @Override
-    public void update(Company student) {
-
-    }
-
-    @Override
-    public void delete(Company student) {
-
-    }
 }

@@ -36,24 +36,4 @@ public class RoomDaoImpl implements GenericDao {
     public void setConnection(Connection connection) {
 
     }
-
-    @Override
-    public void create(Object student) {
-
-    }
-
-    @Override
-    public Object getById(int id) {
-        return null;
-    }
-
-    @Override
-    public void update(Object student) {
-
-    }
-
-    @Override
-    public void delete(Object student) {
-
-    }
 }

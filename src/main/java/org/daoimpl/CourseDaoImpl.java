@@ -104,23 +104,5 @@ public class CourseDaoImpl implements GenericDao<Course> {
         this.connection = connection;
     }
 
-    @Override
-    public void create(Course student) {
 
-    }
-
-    @Override
-    public Course getById(int id) {
-        return null;
-    }
-
-    @Override
-    public void update(Course student) {
-
-    }
-
-    @Override
-    public void delete(Course student) {
-
-    }
 }

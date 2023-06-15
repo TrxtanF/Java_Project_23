@@ -33,24 +33,4 @@ public class Test implements GenericDao <Company> {
     public void setConnection(Connection connection) {
 
     }
-
-    @Override
-    public void create(Company student) {
-
-    }
-
-    @Override
-    public Company getById(int id) {
-        return null;
-    }
-
-    @Override
-    public void update(Company student) {
-
-    }
-
-    @Override
-    public void delete(Company student) {
-
-    }
 }

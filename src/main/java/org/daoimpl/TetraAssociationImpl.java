@@ -21,8 +21,9 @@ public class TetraAssociationImpl implements GenericDao<TetraAssociation> {
 
     @Override
     public List<TetraAssociation> getAll() throws SQLException {
-        List<TetraAssociation> list = new ArrayList<>();
 
+        List<TetraAssociation> list = new ArrayList<>();
+        /*
         // SQL-Query
         String query = "SELECT * FROM allocation al, student st, company com, course cou where st.company_fk = com.company_id and st.student_id = al.student_fk and al.course_fk = cou.course_id";
 
@@ -45,7 +46,7 @@ public class TetraAssociationImpl implements GenericDao<TetraAssociation> {
         // release resource
         resultSet.close();
         ps.close();
-
+        */
         return list;
     }
 

@@ -102,23 +102,4 @@ public class AllocationDaoImpl implements GenericDao<Allocation> {
         this.connection = connection;
     }
 
-    @Override
-    public void create(Allocation student) {
-
-    }
-
-    @Override
-    public Allocation getById(int id) {
-        return null;
-    }
-
-    @Override
-    public void update(Allocation student) {
-
-    }
-
-    @Override
-    public void delete(Allocation student) {
-
-    }
 }
