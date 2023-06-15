@@ -25,6 +25,7 @@ CREATE TABLE `course` (
 
 
 
+
 CREATE TABLE `student` (
   `student_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,

@@ -18,28 +18,44 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import org.dao.GenericDao;
+import org.daoimpl.TetraAssociationImpl;
+import org.databaseutils.H2Utils;
+import org.entity.TetraAssociation;
 
 
-
-
-
-
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 public class MainApp extends Application {
 
-    private TableView<Student> studentTable;
+    private TableView<TetraAssociation> studentTable;
     private ToggleButton toggleButton;
     private Button addButton;
     private StudentManager studentManager; // Student manager
+    private  H2Utils h2utils;
+
+    private GenericDao companyImpl;
+    private GenericDao courseImpl;
+    private GenericDao studentImpl;
+    private GenericDao allocationImpl;
+    private GenericDao roomImpl;
+
+    private Connection connection;
+
+    private static GenericDao<TetraAssociation> tetraAssociation;
 
     public static void main(String[] args) {
+        H2Utils h2Utils = new H2Utils();
+        tetraAssociation = new TetraAssociationImpl();
+        tetraAssociation.setConnection(h2Utils.getConnection());
         launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws SQLException {
         primaryStage.setTitle("Student Management");
 
         // basic layout
@@ -53,20 +69,22 @@ public class MainApp extends Application {
         searchBox.setPadding(new Insets(10));
 
         // student table
-        studentTable = new TableView<>();
-        TableColumn<Student, Void> editColumn = new TableColumn<>("Edit");
-        TableColumn<Student, Void> deleteColumn = new TableColumn<>("Delete");
-        TableColumn<Student, String> nameColumn = new TableColumn<>("Name");
-        TableColumn<Student, String> courseColumn = new TableColumn<>("Course");
-        TableColumn<Student, String> companyColumn = new TableColumn<>("Company");
-        TableColumn<Student, Integer> skillColumn = new TableColumn<>("Java Skill");
+        // student table
+        TableView<TetraAssociation> studentTable = new TableView<>();
+        TableColumn<TetraAssociation, Void> editColumn = new TableColumn<>("Edit");
+        TableColumn<TetraAssociation, Void> deleteColumn = new TableColumn<>("Delete");
+        TableColumn<TetraAssociation, String> nameColumn = new TableColumn<>("Name");
+        TableColumn<TetraAssociation, String> courseColumn = new TableColumn<>("Course");
+        TableColumn<TetraAssociation, String> companyColumn = new TableColumn<>("Company");
+        TableColumn<TetraAssociation, String> javaSkillColumn = new TableColumn<>("Java Skill");
 
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         courseColumn.setCellValueFactory(new PropertyValueFactory<>("course"));
         companyColumn.setCellValueFactory(new PropertyValueFactory<>("company"));
-        skillColumn.setCellValueFactory(new PropertyValueFactory<>("javaSkill"));
+        javaSkillColumn.setCellValueFactory(new PropertyValueFactory<>("javaSkill"));
 
-        studentTable.getColumns().addAll(nameColumn, courseColumn, companyColumn, skillColumn);
+        studentTable.getColumns().addAll(editColumn, deleteColumn, nameColumn, courseColumn, companyColumn, javaSkillColumn);
+
 
         // toggle
         toggleButton = new ToggleButton("Toggle Courses");
@@ -91,14 +109,12 @@ public class MainApp extends Application {
         studentManager = new StudentManager("John Doe", "Computer Science", "ABC Company", 8);
 
         //  Student example
-        ObservableList<Student> students = FXCollections.observableArrayList(
-                new Student("John Doe", "Computer Science", "ABC Company", 8),
-                new Student("Jane Smith", "Mathematics", "XYZ Company", 9),
-                new Student("Mark Johnson", "Physics", "DEF Company", 7)
+        ObservableList<TetraAssociation> tetraAssociationList = FXCollections.observableArrayList(
+                tetraAssociation.getAll()
         );
 
         // students data
-        studentTable.setItems(students);
+        studentTable.setItems(tetraAssociationList);
 
         // event Handler
         searchButton.setOnAction(event -> {
@@ -120,9 +136,12 @@ public class MainApp extends Application {
 
             {
                 editButton.setOnAction(event -> {
-                    Student student = getTableView().getItems().get(getIndex());
+                    TetraAssociation student = getTableView().getItems().get(getIndex());
                     showEditStudentPopup(student);
                 });
+
+
+
             }
 
             @Override
@@ -141,7 +160,7 @@ public class MainApp extends Application {
 
             {
                 deleteButton.setOnAction(event -> {
-                    Student student = getTableView().getItems().get(getIndex());
+                    TetraAssociation student = getTableView().getItems().get(getIndex());
                     showDeleteConfirmationDialog(student);
                 });
             }
@@ -162,7 +181,7 @@ public class MainApp extends Application {
         addButton.setOnAction(event -> showAddStudentPopup());
     }
 
-    private void showEditStudentPopup(Student student) {
+    private void showEditStudentPopup(TetraAssociation student) {
         Dialog<Student> dialog = new Dialog<>();
         dialog.setTitle("Edit Student");
 
@@ -230,7 +249,7 @@ public class MainApp extends Application {
 
 
 
-    private void showDeleteConfirmationDialog(Student student) {
+    private void showDeleteConfirmationDialog(TetraAssociation student) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Student");
         alert.setHeaderText("Are you sure you want to delete this student?");
@@ -244,7 +263,7 @@ public class MainApp extends Application {
     }
 
     private void updateStudentTable(List<Student> students) {
-        ObservableList<Student> studentList = FXCollections.observableArrayList(students);
+        ObservableList<TetraAssociation> studentList = FXCollections.observableArrayList(students);
         studentTable.setItems(studentList);
     }
 

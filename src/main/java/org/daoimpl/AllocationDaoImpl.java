@@ -32,6 +32,7 @@ public class AllocationDaoImpl implements GenericDao<Allocation> {
      * Every row is one object in the list.
      */
 
+
     @Override
     public List<Allocation> getAll() throws SQLException {
         List<Allocation> list = new ArrayList<>();
@@ -99,5 +100,25 @@ public class AllocationDaoImpl implements GenericDao<Allocation> {
     @Override
     public void setConnection(Connection connection) {
         this.connection = connection;
+    }
+
+    @Override
+    public void create(Allocation student) {
+
+    }
+
+    @Override
+    public Allocation getById(int id) {
+        return null;
+    }
+
+    @Override
+    public void update(Allocation student) {
+
+    }
+
+    @Override
+    public void delete(Allocation student) {
+
     }
 }

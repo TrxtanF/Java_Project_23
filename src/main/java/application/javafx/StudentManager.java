@@ -68,7 +68,7 @@ public class StudentManager {
         students.remove(student);
     }
 
-    public void updateStudent(Student student) {
+  public void updateStudent(Student student) {
         try {
             // Crea la query di aggiornamento
             String query = "UPDATE student SET name=?, company_fk=?, java_skills=? WHERE student_id=?";
