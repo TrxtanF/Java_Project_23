@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="New database structure fixed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/RoomCheck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/Testing/RoomTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/RoomDaoImpl.java" afterDir="false" />
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Added Methods for Room Table (SQL-Query and Input Testing)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/InputCheck/CourseCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/InputCheck/CourseCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/AllocationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Testing/AllocationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/CourseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Testing/CourseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/StudentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Testing/StudentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,6 +227,7 @@
       <workItem from="1686128783369" duration="258000" />
       <workItem from="1686131973937" duration="1589000" />
       <workItem from="1686151687409" duration="5891000" />
+      <workItem from="1686827688874" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="Create ReadMe">
       <created>1685444186930</created>
@@ -328,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686757040458</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added Methods for Room Table (SQL-Query and Input Testing)">
+      <created>1686771314160</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1686771314160</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,6 +347,7 @@
     <MESSAGE value="Java fx basiic structure" />
     <MESSAGE value="New database structure" />
     <MESSAGE value="New database structure fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="New database structure fixed" />
+    <MESSAGE value="Added Methods for Room Table (SQL-Query and Input Testing)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Methods for Room Table (SQL-Query and Input Testing)" />
   </component>
 </project>
