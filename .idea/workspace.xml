@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="New database structure fixed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx/YourControllerClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/TetraAssociation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/TetraAssociation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="New FXML, try to fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -331,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686842478128</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="New FXML, try to fix">
+      <created>1686896815469</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1686896815469</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,6 +362,7 @@
     <MESSAGE value="New database structure" />
     <MESSAGE value="New database structure fixed" />
     <MESSAGE value="database-java fx try" />
-    <option name="LAST_COMMIT_MESSAGE" value="database-java fx try" />
+    <MESSAGE value="New FXML, try to fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="New FXML, try to fix" />
   </component>
 </project>
