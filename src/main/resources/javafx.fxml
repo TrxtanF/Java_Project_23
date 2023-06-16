@@ -1,16 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="application.javafx.MainApp">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="711.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+  <tabs>
+    <Tab text="Students">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="495.0" layoutY="40.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="140.0" text="Add Student" />
+                  <Button layoutX="337.0" layoutY="54.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="56.0" text="Search" />
+                  <TextField layoutX="78.0" layoutY="55.0" prefHeight="29.0" prefWidth="239.0" />
+                  <TableView layoutX="78.0" layoutY="123.0" prefHeight="415.0" prefWidth="557.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Name" />
+                      <TableColumn prefWidth="75.0" text="Course" />
+                        <TableColumn prefWidth="75.0" text="Company" />
+                        <TableColumn prefWidth="75.0" text="Java Skills" />
+                        <TableColumn prefWidth="75.0" text="Edit" />
+                        <TableColumn prefWidth="75.0" text="Delete" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Course">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="495.0" layoutY="40.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="140.0" text="Add Student">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button layoutX="337.0" layoutY="54.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="56.0" text="Search">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <TextField layoutX="78.0" layoutY="55.0" prefHeight="29.0" prefWidth="239.0" />
+                  <ScrollPane id="grid_container" layoutX="78.0" layoutY="122.0" prefHeight="379.0" prefWidth="559.0">
+                     <content>
+                        <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="106.0" text="Button" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

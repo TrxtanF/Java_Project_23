@@ -3,25 +3,22 @@ package application.javafx;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javafx.scene.layout.GridPane;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import org.dao.GenericDao;
-import org.daoimpl.TetraAssociationImpl;
-import org.databaseutils.H2Utils;
-import org.entity.TetraAssociation;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 
 
 import java.sql.Connection;
@@ -31,29 +28,32 @@ import java.util.Optional;
 
 public class MainApp extends Application {
 
-    private TableView<TetraAssociation> studentTable;
-    private ToggleButton toggleButton;
-    private Button addButton;
-    private StudentManager studentManager; // Student manager
-    private  H2Utils h2utils;
+    @Override
+    public void start(Stage primaryStage) {
+        try {
+            // Load FXML file
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/javafx.fxml"));
+            Parent root = loader.load();
 
-    private GenericDao companyImpl;
-    private GenericDao courseImpl;
-    private GenericDao studentImpl;
-    private GenericDao allocationImpl;
-    private GenericDao roomImpl;
+            // new scene
+            Scene scene = new Scene(root);
 
-    private Connection connection;
-
-    private static GenericDao<TetraAssociation> tetraAssociation;
-
-    public static void main(String[] args) {
-        H2Utils h2Utils = new H2Utils();
-        tetraAssociation = new TetraAssociationImpl();
-        tetraAssociation.setConnection(h2Utils.getConnection());
-        launch(args);
+            // stage scene
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+
+/*
     @Override
     public void start(Stage primaryStage) throws SQLException {
         primaryStage.setTitle("Student Management");
@@ -68,7 +68,6 @@ public class MainApp extends Application {
         searchBox.setSpacing(10);
         searchBox.setPadding(new Insets(10));
 
-        // student table
         // student table
         TableView<TetraAssociation> studentTable = new TableView<>();
         TableColumn<TetraAssociation, Void> editColumn = new TableColumn<>("Edit");
@@ -189,17 +188,6 @@ public class MainApp extends Application {
         TextField nameField = new TextField(student.getName());
         TextField courseField = new TextField(student.getCourse());
         TextField companyField = new TextField(student.getCompany());
-        Slider skillSlider = new Slider(0, 10, student.getJavaSkill());
-        Label skillValueLabel = new Label("Java Skill: " + student.getJavaSkill());
-
-        // Aggiungi il pulsante "Save" al dialogo
-        ButtonType saveButton = new ButtonType("Save", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(saveButton, ButtonType.CANCEL);
-
-        // Configura il layout del popup
-        GridPane gridPane = new GridPane();
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
         gridPane.addRow(0, new Label("Name:"), nameField);
         gridPane.addRow(1, new Label("Course:"), courseField);
         gridPane.addRow(2, new Label("Company:"), companyField);
@@ -338,8 +326,7 @@ public class MainApp extends Application {
         // new student
         Optional<Student> result = dialog.showAndWait();
         result.ifPresent(student -> studentManager.addStudent(student));
-    }
+    }*/
 
 
-}
 

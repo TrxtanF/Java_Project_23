@@ -12,12 +12,14 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         H2Utils tentativo = new H2Utils();
-
         GenericDao<Company> company = new CompanyDaoImpl();
+        company.setConnection(tentativo.getConnection());}}
+
+     /*
 
         GenericDao<TetraAssociation> tetraAssociation = new TetraAssociationImpl();
 
-        company.setConnection(tentativo.getConnection());
+
 
         tetraAssociation.setConnection(tentativo.getConnection());
 
@@ -27,7 +29,6 @@ public class Main {
             System.out.println(t.toString());
         }
 
+      System.out.println("Elements inserted: " + company.getAll().size());
+    }*/
 
-        System.out.println("Elements inserted: " + company.getAll().size());
-    }
-}

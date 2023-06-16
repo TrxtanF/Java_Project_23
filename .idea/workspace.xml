@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Fixed the DaoImpl.&#10;Some fixes in the StudentManager.&#10;Delete the part Hannes added today.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx/MainTest.java" afterDir="false" />
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="New database structure fixed">
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx/YourControllerClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/StudentTow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/StudentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/StudentManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/AllocationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/AllocationDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CompanyDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CompanyDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/RoomDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/RoomDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/TetraAssociationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/TetraAssociationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/databaseutils/H2Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/databaseutils/H2Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/TetraAssociation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/TetraAssociation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ddl.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,13 +73,12 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Java Projekt/Java_Project_23&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gianl/Desktop/Java_23/Java_Project_23&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2045977&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
@@ -104,18 +93,15 @@
       <recent name="C:\Users\Win\IdeaProjects\Java_Project_23\src\main\java\webapp\img" />
       <recent name="C:\Users\Win\IdeaProjects\Java_Project_23\src\main\java\webapp\css" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="application.javafx" />
-    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean" />
       <command value="mvn install" />
+      <command value="mvn clean" />
       <command value="mvn javafx:run" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.main">
     <configuration name="CompanyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.Testing.CompanyTest" />
       <module name="Java_Interfaccia" />
@@ -182,9 +168,9 @@
       </method>
     </configuration>
     <configuration name="main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="application.javafx.MainTest" />
+      <option name="MAIN_CLASS_NAME" value="application.javafx.MainApp" />
       <module name="Java_Interfaccia" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;E:\JavaFx\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;H:\java\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -214,11 +200,11 @@
     </configuration>
     <list>
       <item itemvalue="Application.main" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.CompanyTest" />
       <item itemvalue="Application.CourseTest" />
       <item itemvalue="Application.RoomTest" />
       <item itemvalue="Application.StudentTest" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="Remote JVM Debug.Unnamed" />
     </list>
     <recent_temporary>
@@ -246,10 +232,6 @@
       <workItem from="1686128783369" duration="258000" />
       <workItem from="1686131973937" duration="1589000" />
       <workItem from="1686151687409" duration="5891000" />
-      <workItem from="1686847263885" duration="1844000" />
-      <workItem from="1686849114433" duration="173000" />
-      <workItem from="1686849293545" duration="3022000" />
-      <workItem from="1686861646930" duration="766000" />
     </task>
     <task id="LOCAL-00001" summary="Create ReadMe">
       <created>1685444186930</created>
@@ -381,18 +363,6 @@
     <MESSAGE value="New database structure" />
     <MESSAGE value="New database structure fixed" />
     <MESSAGE value="database-java fx try" />
-    <MESSAGE value="Fixed the DaoImpl.&#10;Some fixes in the StudentManager.&#10;Delete the part Hannes added today." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the DaoImpl.&#10;Some fixes in the StudentManager.&#10;Delete the part Hannes added today." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/application/javafx/MainTest.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="LAST_COMMIT_MESSAGE" value="database-java fx try" />
   </component>
 </project>

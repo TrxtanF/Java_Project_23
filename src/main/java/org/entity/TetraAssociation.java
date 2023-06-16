@@ -54,5 +54,6 @@ public class TetraAssociation {
     }
 
 
-
+    public void setJavaSkill(int javaSkill) {
+    }
 }
