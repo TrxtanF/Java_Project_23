@@ -1,60 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="711.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
-  <tabs>
-    <Tab text="Students">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Button layoutX="495.0" layoutY="40.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="140.0" text="Add Student" />
-                  <Button layoutX="337.0" layoutY="54.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="56.0" text="Search" />
-                  <TextField layoutX="78.0" layoutY="55.0" prefHeight="29.0" prefWidth="239.0" />
-                  <TableView layoutX="78.0" layoutY="123.0" prefHeight="415.0" prefWidth="557.0">
+<BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.javafx.controller.StudentController">
+    <top>
+        <AnchorPane prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: lightgray;">
+            <children>
+                <TextField layoutX="10.0" layoutY="15.0" prefWidth="200.0" promptText="Search" />
+                <Button layoutX="220.0" layoutY="15.0" prefWidth="80.0" text="Search" />
+                <Button layoutX="310.0" layoutY="15.0" onAction="#openPopUp" prefWidth="100.0" text="Add Student" />
+                <Button layoutX="420.0" layoutY="15.0" onAction="#openCoursePage" prefWidth="100.0" text="Open Course"/>
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true">
+            <content>
+                <TableView fx:id="studentTable">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Name" />
-                      <TableColumn prefWidth="75.0" text="Course" />
-                        <TableColumn prefWidth="75.0" text="Company" />
-                        <TableColumn prefWidth="75.0" text="Java Skills" />
-                        <TableColumn prefWidth="75.0" text="Edit" />
-                        <TableColumn prefWidth="75.0" text="Delete" />
+                        <TableColumn text="Name" />
+                        <TableColumn text="Course" />
+                        <TableColumn text="Company" />
+                        <TableColumn text="Java Skills" />
+                        <TableColumn text="Edit" />
+                        <TableColumn text="Delete" />
                     </columns>
-                  </TableView>
-               </children></AnchorPane>
-      </content>
-    </Tab>
-      <Tab text="Course">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Button layoutX="495.0" layoutY="40.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="140.0" text="Add Student">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button layoutX="337.0" layoutY="54.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="56.0" text="Search">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <TextField layoutX="78.0" layoutY="55.0" prefHeight="29.0" prefWidth="239.0" />
-                  <ScrollPane id="grid_container" layoutX="78.0" layoutY="122.0" prefHeight="379.0" prefWidth="559.0">
-                     <content>
-                        <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="106.0" text="Button" />
-                     </content>
-                  </ScrollPane>
-               </children>
-            </AnchorPane>
-         </content>
-      </Tab>
-  </tabs>
-</TabPane>
+                </TableView>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>
+
+
+
+
+
+
+        <!--<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.ScrollPane?>
+        <?import javafx.scene.control.Tab?>
+        <?import javafx.scene.control.TabPane?>
+        <?import javafx.scene.control.TableColumn?>
+        <?import javafx.scene.control.TableView?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.layout.AnchorPane?>
+        <?import javafx.scene.layout.BorderPane?>
+
+        <BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.javafx.controller.StudentController">
+            <top>
+                <AnchorPane prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: lightgray;">
+                    <children>
+                        <TextField layoutX="10.0" layoutY="15.0" prefWidth="200.0" promptText="Search" />
+                        <Button layoutX="220.0" layoutY="15.0" prefWidth="80.0" text="Search" />
+                        <Button layoutX="310.0" layoutY="15.0" onAction="#openPopUp" prefWidth="100.0" text="Add Student" />
+                        <Button layoutX="420.0" layoutY="15.0" onAction="#addCourse" prefWidth="100.0" text="Add Course" />
+                    </children>
+                </AnchorPane>
+            </top>
+            <center>
+                <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab style="-fx-background-color: lightblue;" text="Student">
+                            <content>
+                                <ScrollPane fitToHeight="true" fitToWidth="true">
+                                    <content>
+                                        <TableView fx:id="studentTable">
+                                            <columns>
+                                                <TableColumn text="Name" />
+                                                <TableColumn text="Course" />
+                                                <TableColumn text="Company" />
+                                                <TableColumn text="Java Skills" />
+                                                <TableColumn text="Edit" />
+                                                <TableColumn text="Delete" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab style="-fx-background-color: #CCFFCC;" text="Course">
+                            <content>
+                                <AnchorPane fx:id="coursePane">
+
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </center>
+        </BorderPane>-->

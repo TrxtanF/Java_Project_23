@@ -1,30 +1,11 @@
 package application.javafx;
 
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
+import application.javafx.controller.StudentController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-
-
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Optional;
 
 public class MainApp extends Application {
 
@@ -36,6 +17,8 @@ public class MainApp extends Application {
             loader.setLocation(getClass().getResource("/javafx.fxml"));
             Parent root = loader.load();
 
+            StudentController controller = loader.getController();
+
             // new scene
             Scene scene = new Scene(root);
 
@@ -46,6 +29,8 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
     }
+
+
 
     public static void main(String[] args) {
         launch(args);

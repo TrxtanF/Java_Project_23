@@ -1,0 +1,4 @@
+.table-cell:selected .text {
+    -fx-font-weight: bold;
+    -fx-text-fill: red;
+}

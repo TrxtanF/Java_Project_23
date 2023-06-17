@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+
+<BorderPane prefHeight="379.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.javafx.controller.StudentController">
+    <center>
+        <GridPane alignment="CENTER" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+            <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Course" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <ComboBox GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Company" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <ComboBox GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Java Skills" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Slider blockIncrement="1" majorTickUnit="1" max="10" min="0" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <columnConstraints>
+                <ColumnConstraints percentWidth="40" />
+                <ColumnConstraints percentWidth="60" />
+            </columnConstraints>
+
+            <rowConstraints>
+                <RowConstraints percentHeight="25" />
+                <RowConstraints percentHeight="25" />
+                <RowConstraints percentHeight="25" />
+                <RowConstraints percentHeight="25" />
+            </rowConstraints>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="10">
+            <Button prefHeight="41.0" prefWidth="64.0" text="Save" />
+        </HBox>
+    </bottom>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</BorderPane>
+        <!--<?xml version="1.0" encoding="UTF-8"?>
+
+                <?import javafx.scene.control.Button?>
+                <?import javafx.scene.control.Label?>
+                <?import javafx.scene.control.MenuButton?>
+                <?import javafx.scene.control.MenuItem?>
+                <?import javafx.scene.control.Slider?>
+                <?import javafx.scene.control.TextField?>
+                <?import javafx.scene.control.TitledPane?>
+                <?import javafx.scene.layout.AnchorPane?>
+
+                <?import javafx.scene.control.DialogPane?>
+                <DialogPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.javafx.controller.StudentController">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="400.0">
+                         <children>
+                            <TextField layoutX="171.0" layoutY="47.0" prefHeight="26.0" prefWidth="251.0" />
+                            <MenuButton layoutX="170.0" layoutY="112.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="252.0" text="Course">
+                              <items>
+                                <MenuItem mnemonicParsing="false" text="Action 1" />
+                                <MenuItem mnemonicParsing="false" text="Action 2" />
+                              </items>
+                            </MenuButton>
+                            <MenuButton layoutX="170.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="252.0" text="Company">
+                               <items>
+                                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                                  <MenuItem mnemonicParsing="false" text="Action 2" />
+                               </items>
+                            </MenuButton>
+                            <Slider blockIncrement="1.0" layoutX="168.0" layoutY="245.0" majorTickUnit="1" max="10.0" minorTickCount="0" prefHeight="14.0" prefWidth="257.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                            <Button layoutX="246.0" layoutY="298.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="100.0" text="Add Student" />
+                            <Label layoutX="170.0" layoutY="23.0" text="NAME" />
+                            <Label layoutX="171.0" layoutY="89.0" text="COURSE" />
+                            <Label layoutX="171.0" layoutY="154.0" prefHeight="17.0" prefWidth="75.0" text="COMPANY" />
+                            <Label layoutX="168.0" layoutY="228.0" text="Label" />
+                            <Label layoutX="332.0" layoutY="146.0" text="Label" />
+                         </children></AnchorPane>
+                  </content>
+                </DialogPane>-->
