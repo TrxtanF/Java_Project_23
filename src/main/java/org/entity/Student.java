@@ -26,10 +26,6 @@ public class Student {
         return companyFk;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
     public void setName(String name) {
         this.name = name;
     }

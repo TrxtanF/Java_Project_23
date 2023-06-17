@@ -17,10 +17,6 @@ public class Company {
         return companyName;
     }
 
-    public void setCompanyId(int companyId) {
-        this.companyId = companyId;
-    }
-
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }

@@ -1,5 +1,7 @@
 package org.daoimpl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.dao.GenericDao;
 import org.entity.Company;
 
@@ -14,6 +16,9 @@ public class CompanyDaoImpl implements GenericDao<Company> {
 
     private Connection connection;
 
+    public CompanyDaoImpl(Connection connection) {
+        this.connection = connection;
+    }
 
     /**
      * Summary:
@@ -38,11 +43,11 @@ public class CompanyDaoImpl implements GenericDao<Company> {
      * Every row is one Company object.
      */
     @Override
-    public List<Company> getAll() throws SQLException {
-        List<Company> list = new ArrayList<>();
+    public ObservableList<Company> getAll() throws SQLException {
+        ObservableList<Company> list = FXCollections.observableArrayList();
 
         //SQL-query
-        String query = "SELECT * FROM company";
+        String query = "SELECT company_id, company_name FROM company";
         PreparedStatement ps = connection.prepareStatement(query);
         ResultSet resultSet = ps.executeQuery();
 

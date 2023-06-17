@@ -1,8 +1,10 @@
-package org.InputCheck;
+package org.inputCheck;
 
+import javafx.collections.ObservableList;
 import org.daoimpl.AllocationDaoImpl;
 import org.entity.Allocation;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
@@ -10,10 +12,16 @@ import java.sql.SQLException;
  * If this is not correct, an error is returned.
  */
 public class AllocationCheck {
-    private AllocationDaoImpl allocationDao = new AllocationDaoImpl();
+    private Connection connection;
+    private AllocationDaoImpl allocationDao;
     private String validationProblem = "";
 
-    public String getValidationProblem(){
+    public AllocationCheck(Connection connection){
+        this.connection = connection;
+        allocationDao = new AllocationDaoImpl(connection);
+    }
+
+    public String getValidationProblemDetails(){
         return validationProblem;
     }
 
@@ -21,21 +29,33 @@ public class AllocationCheck {
      * Checks if the user input is correct.
      * If it is not, it returns false and give a detailed validation Error.
      */
-    public boolean insert(Allocation allocation) throws SQLException {
+    public boolean insert(Allocation allocation){
         //Check user input
         if(!check(allocation)) return false;
 
         //Insert allocation
-        allocationDao.insert(allocation);
+        try {
+            allocationDao.insert(allocation);
+        } catch (SQLException e) {
+            validationProblem = "Data could not be inserted into the database";
+        }
 
         return true;
+    }
+
+    public ObservableList getAll(){
+        try {
+            return allocationDao.getAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
      * Checks if the user input is correct.
      * If it is not, it returns false and give a detailed validation Error.
      */
-    public boolean deleteById(int id) throws SQLException {
+    public boolean deleteById(int id){
         //Check user input
         if(id<1){
             validationProblem ="Die Id muss größer sein als 0";
@@ -43,12 +63,16 @@ public class AllocationCheck {
         }
 
         //Delete allocation
-        allocationDao.deleteById(id);
+        try {
+            allocationDao.deleteById(id);
+        } catch (SQLException e) {
+            validationProblem ="Data could not be inserted into the database";
+        }
 
         return true;
     }
 
-    public boolean updateById(int id, Allocation allocation) throws SQLException {
+    public boolean updateById(int id, Allocation allocation) {
         //Check user input
         if(!check(allocation)) return false;
         if(id < 1){
@@ -57,7 +81,11 @@ public class AllocationCheck {
         }
 
         //Update allocation
-        allocationDao.updateById(id, allocation);
+        try {
+            allocationDao.updateById(id, allocation);
+        } catch (SQLException e) {
+            validationProblem ="Data could not be inserted into the database";
+        }
 
         return true;
     }

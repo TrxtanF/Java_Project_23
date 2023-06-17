@@ -1,5 +1,7 @@
 package org.daoimpl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.dao.GenericDao;
 import org.entity.Student;
 
@@ -12,6 +14,10 @@ import java.util.List;
 
 public class StudentDaoImpl implements GenericDao<Student> {
     private Connection connection;
+
+    public StudentDaoImpl(Connection connection){
+        this.connection = connection;
+    }
 
     /**
      * Summary:
@@ -38,8 +44,8 @@ public class StudentDaoImpl implements GenericDao<Student> {
      * Every row is one object in the list.
      */
     @Override
-    public List<Student> getAll() throws SQLException {
-        List<Student> list = new ArrayList<>();
+    public ObservableList<Student> getAll() throws SQLException {
+        ObservableList<Student> list = FXCollections.observableArrayList();
 
         //SQL-Query
         String query = "SELECT * FROM student";

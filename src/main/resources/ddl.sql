@@ -1,23 +1,19 @@
-CREATE TABLE `company` (
+CREATE TABLE IF NOT EXISTS `company` (
   `company_id` int NOT NULL AUTO_INCREMENT,
   `company_name` varchar(45) NOT NULL,
   PRIMARY KEY (`company_id`),
   UNIQUE KEY `company_name_UNIQUE` (`company_name`)
 );
 
-
-CREATE TABLE `course` (
+CREATE TABLE IF NOT EXISTS `course` (
   `course_id` int NOT NULL AUTO_INCREMENT,
   `subject` varchar(50) NOT NULL,
-  `room` int NOT NULL,
+  `room` varChar(45) NOT NULL,
   PRIMARY KEY (`course_id`),
   UNIQUE KEY `subject_UNIQUE` (`subject`)
 );
 
-
-
-
-CREATE TABLE `student` (
+CREATE TABLE IF NOT EXISTS `student` (
   `student_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `company_fk` int NOT NULL,
@@ -27,7 +23,7 @@ CREATE TABLE `student` (
   CONSTRAINT `company_fk` FOREIGN KEY (`company_fk`) REFERENCES `company` (`company_id`)
 );
 
-CREATE TABLE `allocation` (
+CREATE TABLE IF NOT EXISTS `allocation` (
   `allocation_id` int NOT NULL AUTO_INCREMENT,
   `student_fk` int NOT NULL,
   `course_fk` int NOT NULL,
@@ -36,10 +32,4 @@ CREATE TABLE `allocation` (
   KEY `course_fk_idx` (`course_fk`),
   CONSTRAINT `course_fk` FOREIGN KEY (`course_fk`) REFERENCES `course` (`course_id`),
   CONSTRAINT `student_fk` FOREIGN KEY (`student_fk`) REFERENCES `student` (`student_id`)
-);
-
-CREATE TABLE `test` (
-  `idtest` int NOT NULL,
-  `testcol` varchar(45) NOT NULL,
-  PRIMARY KEY (`idtest`)
 );

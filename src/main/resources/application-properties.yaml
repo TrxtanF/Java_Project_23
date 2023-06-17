@@ -1,4 +1,5 @@
-url: "jdbc:h2:~/test;MODE=MySQL"
+url: "jdbc:h2:~/test;INIT=RUNSCRIPT FROM 'classpath:ddl.sql';MODE=MySQL"
 user: ""
 password: ""
-#INIT=RUNSCRIPT FROM 'classpath:ddl.sql'\;RUNSCRIPT FROM 'classpath:sqlTestEntries.sql'
+
+#RUNSCRIPT FROM 'classpath:sqlTestEntries.sql'

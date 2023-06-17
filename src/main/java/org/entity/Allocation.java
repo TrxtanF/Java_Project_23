@@ -23,10 +23,6 @@ public class Allocation {
         return courseFk;
     }
 
-    public void setAllocationId(int allocationId) {
-        this.allocationId = allocationId;
-    }
-
     public void setStudentFk(int studentFk) {
         this.studentFk = studentFk;
     }

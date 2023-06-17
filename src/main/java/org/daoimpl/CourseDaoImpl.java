@@ -1,5 +1,7 @@
 package org.daoimpl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.dao.GenericDao;
 import org.entity.Course;
 
@@ -13,6 +15,10 @@ import java.util.List;
 public class CourseDaoImpl implements GenericDao<Course> {
     private Connection connection;
 
+    public CourseDaoImpl(Connection connection){
+        this.connection = connection;
+    }
+
     /**
      * Summary:
      * insert(Course course) gets an object from type course and insert the
@@ -21,10 +27,10 @@ public class CourseDaoImpl implements GenericDao<Course> {
     @Override
     public void insert(Course course) throws SQLException {
         //SQL-Query
-        String query = "INSERT INTO course (subject, room_fk) VALUES (?,?)";
+        String query = "INSERT INTO course (subject, room) VALUES (?,?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, course.getSubject());
-        ps.setInt(2, course.getRoomFk());
+        ps.setString(2, course.getRoom());
         ps.executeUpdate();
 
         //Free resources
@@ -37,8 +43,8 @@ public class CourseDaoImpl implements GenericDao<Course> {
      * Every row is one object in the list.
      */
     @Override
-    public List<Course> getAll() throws SQLException {
-        List<Course> list = new ArrayList<>();
+    public ObservableList<Course> getAll() throws SQLException {
+        ObservableList<Course> list = FXCollections.observableArrayList();
 
         //SQL-Statement
         String query = "SELECT * FROM course";
@@ -50,10 +56,10 @@ public class CourseDaoImpl implements GenericDao<Course> {
             //Get Data from ResultSet
             int courseId = resultSet.getInt("course_id");
             String subject = resultSet.getString("subject");
-            int roomFk = resultSet.getInt("room_fk");
+            String room = resultSet.getString("room");
 
             //Create Course object
-            Course course = new Course(courseId, subject, roomFk);
+            Course course = new Course(courseId, subject, room);
             list.add(course);
         }
 
@@ -88,10 +94,10 @@ public class CourseDaoImpl implements GenericDao<Course> {
     @Override
     public void updateById(int id, Course course) throws SQLException {
         //SQL-Query
-        String query = "UPDATE course SET subject = ?, room_fk = ? WHERE course_id = ?";
+        String query = "UPDATE course SET subject = ?, room = ? WHERE course_id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, course.getSubject());
-        ps.setInt(2, course.getRoomFk());
+        ps.setString(2, course.getRoom());
         ps.setInt(3, id);
         ps.executeUpdate();
 

@@ -3,6 +3,7 @@ package org.daoimpl;
 import org.dao.GenericDao;
 import org.databaseutils.H2Utils;
 import org.entity.Company;
+import org.entity.Student;
 import org.entity.TetraAssociation;
 
 import java.sql.SQLException;
@@ -12,8 +13,16 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         H2Utils tentativo = new H2Utils();
-        GenericDao<Company> company = new CompanyDaoImpl();
-        company.setConnection(tentativo.getConnection());}}
+        GenericDao<Company> company = new CompanyDaoImpl(tentativo.getConnection());
+        company.setConnection(tentativo.getConnection());
+
+        List<Company> list = company.getAll();
+        for(Company company1:list){
+            System.out.println(company1.getCompanyName());
+        }
+    }
+}
+
 
      /*
 

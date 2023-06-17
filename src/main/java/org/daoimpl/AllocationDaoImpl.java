@@ -1,5 +1,7 @@
 package org.daoimpl;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.dao.GenericDao;
 import org.entity.Allocation;
 
@@ -13,6 +15,13 @@ import java.util.List;
 public class AllocationDaoImpl implements GenericDao<Allocation> {
     private Connection connection;
 
+    public AllocationDaoImpl(Connection connection){
+        this.connection = connection;
+    }
+
+    /**
+     * insert makes the insert of the allocation into the database.
+     */
     @Override
     public void insert(Allocation allocation) throws SQLException {
         //SQL-Query
@@ -31,11 +40,9 @@ public class AllocationDaoImpl implements GenericDao<Allocation> {
      * getAll() returns a List<Allocation> of all the rows in the allocation table.
      * Every row is one object in the list.
      */
-
-
     @Override
-    public List<Allocation> getAll() throws SQLException {
-        List<Allocation> list = new ArrayList<>();
+    public ObservableList<Allocation> getAll() throws SQLException {
+        ObservableList<Allocation> list = FXCollections.observableArrayList();
 
         //SQL-Query
         String query = "SELECT * FROM allocation";

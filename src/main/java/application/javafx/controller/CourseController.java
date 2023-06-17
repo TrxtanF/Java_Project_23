@@ -23,6 +23,7 @@ public class CourseController {
             stage.setTitle("Student Page");
             stage.setScene(new Scene(root));
             stage.show();
+            stage.setResizable(false);
 
             // Chiusura della finestra corrente (pagina "Course")
             ((Stage) openStudentButton.getScene().getWindow()).close();
