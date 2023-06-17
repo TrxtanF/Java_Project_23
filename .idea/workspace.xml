@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="New FXML, try to fix">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx/controller/AddCourseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx/controller/CourseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx/controller/PopupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx/controller/StudentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AddCourse.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AddStudentPopUp.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Coursefx.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/YourControllerClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/javafx.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/javafx.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Java Fx UI, trying to create a responsive, userfriendly UI, failing hard" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -354,7 +341,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686916210233</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Java Fx UI, trying to create a responsive, userfriendly UI, failing hard">
+      <created>1686986430777</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686986430777</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Java Fx UI, trying to create a responsive, userfriendly UI, failing hard">
+      <created>1686986475024</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686986475024</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +388,7 @@
     <MESSAGE value="New database structure fixed" />
     <MESSAGE value="database-java fx try" />
     <MESSAGE value="New FXML, try to fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="New FXML, try to fix" />
+    <MESSAGE value="Java Fx UI, trying to create a responsive, userfriendly UI, failing hard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Java Fx UI, trying to create a responsive, userfriendly UI, failing hard" />
   </component>
 </project>

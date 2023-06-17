@@ -15,7 +15,7 @@ public class CourseController {
 
     public void openStudentPage() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("javafx.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Studentfx.fxml"));
             Parent root = loader.load();
 
             // Creazione di una nuova finestra per la pagina "Student"

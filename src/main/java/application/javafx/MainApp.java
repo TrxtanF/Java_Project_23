@@ -14,7 +14,7 @@ public class MainApp extends Application {
         try {
             // Load FXML file
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/javafx.fxml"));
+            loader.setLocation(getClass().getResource("/Studentfx.fxml"));
             Parent root = loader.load();
 
             StudentController controller = loader.getController();

@@ -8,25 +8,36 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TextField?>
+
+<?import javafx.scene.layout.HBox?>
+
+
+<?import javafx.scene.layout.Region?>
 <AnchorPane id="rootPane" prefHeight="600.0" prefWidth="800.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.javafx.controller.CourseController">
 
-    <!-- Open Student Button -->
-    <Button layoutX="10.0" layoutY="15.0" onAction="#openStudentPage" prefWidth="100.0" text="Open Student" />
+    <!-- Header -->
+    <HBox layoutX="10.0" layoutY="15.0" spacing="10.0">
+        <!-- Search Bar -->
+        <TextField promptText="Search..." />
 
-    <!-- Search Bar -->
-    <TextField layoutX="10.0" layoutY="50.0" promptText="Search..." />
+        <!-- Search Button -->
+        <Button prefWidth="60.0" text="Search" />
 
-    <!-- Search Button -->
-    <Button layoutX="120.0" layoutY="50.0" prefWidth="60.0" text="Search" />
+        <!-- Add Course Button -->
+        <Button prefWidth="100.0" text="Add Course" />
 
-    <!-- Add Course Button -->
-    <Button layoutX="10.0" layoutY="100.0" prefWidth="100.0" text="Add Course" />
+        <!-- Spacer to push Open Student button to the right -->
+        <Region HBox.hgrow="ALWAYS" />
+
+        <!-- Open Student Button -->
+        <Button onAction="#openStudentPage" prefWidth="100.0" text="Open Student" />
+    </HBox>
 
     <!-- TabPane -->
-    <TabPane layoutX="10.0" layoutY="150.0" prefHeight="400.0" prefWidth="780.0">
-        <Tab text="Courses">
+    <TabPane layoutX="10.0" layoutY="50.0" prefHeight="540.0" prefWidth="780.0">
+        <Tab text="Courses" closable="false">
             <!-- Table for Courses -->
-            <TableView layoutX="10.0" layoutY="10.0" prefHeight="370.0" prefWidth="760.0">
+            <TableView prefHeight="500.0" prefWidth="760.0">
                 <!-- Define columns for Course Name and Class -->
                 <columns>
                     <TableColumn text="Course Name" />
@@ -36,4 +47,7 @@
         </Tab>
     </TabPane>
 </AnchorPane>
+
+
+
 
