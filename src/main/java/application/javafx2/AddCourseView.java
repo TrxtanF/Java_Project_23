@@ -4,19 +4,31 @@ import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.entity.Course;
+import org.inputCheck.CourseCheck;
+
+import java.sql.Connection;
 
 public class AddCourseView extends Application {
     ObservableList<Course> courseList;
     Course newCourse;
 
-    public AddCourseView(ObservableList<Course> courseList){
+    Connection connection;
+
+    CourseCheck courseCheck;
+
+    public AddCourseView(ObservableList<Course> courseList, Connection connection){
         this.courseList = courseList;
+        this.connection = connection;
+        courseCheck= new CourseCheck(connection);
     }
+
+
 
     public static void main(String[] args) {
         launch(args);
@@ -44,7 +56,22 @@ public class AddCourseView extends Application {
             String room = roomTextField.getText();
 
             newCourse = new Course(3, subject, room);
-            courseList.addAll(newCourse);
+            try {
+                if(!courseCheck.insert(newCourse)){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Invalid Input");
+                    alert.setHeaderText(null);
+                    alert.setContentText(courseCheck.getValidationProblemDetails());
+                    alert.show();
+                    System.out.println("Yes");
+                }else{
+                    courseList.addAll(newCourse);
+                }
+
+            } catch (Exception e) {
+
+            }
+
 
             // Close the window
             stage.close();

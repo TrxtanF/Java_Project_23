@@ -5,39 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Create full FrontEnd in javafx2 package (only Allocation doesnt work yet)&#10;Remove throw SQL-Exception in DaoChecks and surround with try catch.&#10;Fix Database Problems">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCompanyView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCourseView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddStudentView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/ShowParticipants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/InputCheck/AllocationCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/inputCheck/AllocationCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/InputCheck/CompanyCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/inputCheck/CompanyCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/InputCheck/CourseCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/inputCheck/CourseCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/InputCheck/RoomCheck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/InputCheck/StudentCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/inputCheck/StudentCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/AllocationTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/CompanyTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/CourseTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/RoomTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/Testing/StudentTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/AllocationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/AllocationDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CompanyDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CompanyDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCourseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCourseView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/RoomDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/StudentDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Allocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Allocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Room.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Studentfx.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Studentfx.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ddl.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ddl.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sqlTestEntries.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlTestEntries.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,31 +64,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/Win/IdeaProjects/Java_Project_23/src/main/resources/javafx.fxml",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2045977",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Win/IdeaProjects/Java_Project_23/src/main/resources/javafx.fxml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2045977&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="application.javafx" />
@@ -133,7 +105,7 @@
       <command value="mvn javafx:run" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.main">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="AddStudentView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="application.javafx2.AddStudentView" />
       <module name="Java_Interfaccia" />
@@ -202,7 +174,7 @@
     <configuration name="main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="application.javafx2.MainApp" />
       <module name="Java_Interfaccia" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;E:\JavaFx\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;H:\java\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

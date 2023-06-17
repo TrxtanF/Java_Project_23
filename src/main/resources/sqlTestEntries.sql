@@ -1,4 +1,4 @@
-INSERT INTO company (company_name) VALUES ('ABC Unternehmen');
+INSERT INTO course (Subject, room) VALUES ('Math' "111D");
 
 
 

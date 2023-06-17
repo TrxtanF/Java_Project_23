@@ -13,6 +13,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -26,6 +27,7 @@ import javafx.scene.control.Alert.AlertType;
 import org.inputCheck.CompanyCheck;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -39,6 +41,8 @@ public class MainApp extends Application {
     private TabPane tabPane;
 
     TableView<Company> companyTableView;
+
+    TableView<Course> courseTableView;
 
     ObservableList<Student> studentList;
     ObservableList<Company> companyList =  FXCollections.observableArrayList();
@@ -288,8 +292,53 @@ public class MainApp extends Application {
                 if (company != null) {
                     if (buttonText.equals("Edit")) {
                         System.out.println("Edit: " + company.getCompanyName());
-                        // Fügen Sie hier den gewünschten Code für die Bearbeitung hinzu
-                    } else if (buttonText.equals("Delete")) {
+
+                        // Pop Up elements
+                        Label companyNameLabel = new Label("Company Name:");
+                        TextField companyNameField = new TextField(company.getCompanyName());
+
+
+
+                        // popup layout
+                        GridPane gridPane = new GridPane();
+                        gridPane.add(companyNameLabel, 0, 0);
+                        gridPane.add(companyNameField, 1, 0);
+
+                        // modify
+                        Alert alert = new Alert(Alert.AlertType.NONE);
+                        alert.setTitle("Edit Company");
+                        alert.setHeaderText(null);
+                        alert.getDialogPane().setContent(gridPane);
+
+                        // confirm and cancel
+                        ButtonType confirmButton = new ButtonType("Confirm", ButtonBar.ButtonData.OK_DONE);
+                        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+                        alert.getButtonTypes().setAll(confirmButton, cancelButton);
+
+                        // Pop up Pops up
+                        Optional<ButtonType> result = alert.showAndWait();
+
+
+
+
+                        if (result.isPresent() && result.get() == confirmButton) {
+                            // L'utente ha confermato, esegui l'azione di modifica qui
+                            String newCompanyName = companyNameField.getText();
+                            Company updatedComp = new Company(company.getCompanyId(), newCompanyName);
+                            if(!companyCheck.updateById(company.getCompanyId(), updatedComp)){
+                                Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                                alert2.setTitle("Invalid Input");
+                                alert2.setHeaderText(null);
+                                alert2.setContentText(companyCheck.getValidationProblemDetails());
+                                alert2.show();
+                                System.out.println("Yes");
+                            }
+                            companyList = companyCheck.getAll();
+                            companyTableView.setItems(companyList);
+
+                        }
+                    }
+                    else if (buttonText.equals("Delete")) {
                         System.out.println("Delete: " + company.getCompanyName());
                         // Fügen Sie hier den gewünschten Code für das Löschen hinzu
                         try {
@@ -332,9 +381,8 @@ public class MainApp extends Application {
     }
 
     private ScrollPane createCoursePage() {
-        courseList = FXCollections.observableArrayList();
-        courseList.add(new Course(1, "Mathematik", "220D"));
-        courseList.add(new Course(2, "Logik", "220D"));
+
+        courseTableView = new TableView<>();
 
         // Create the company page content
         VBox content = new VBox();
@@ -342,14 +390,14 @@ public class MainApp extends Application {
         content.getChildren().add(titleLabel);
 
         // Create the table view
-        TableView<Course> tableView = new TableView<>();
 
         // Create the columns
         TableColumn<Course, String> nameColumn = new TableColumn<>("Course name");
         nameColumn.setCellValueFactory(celldata -> new SimpleStringProperty(String.valueOf(celldata.getValue().getSubject())));
 
         TableColumn<Course, String> roomColumn = new TableColumn<>("Room");
-        roomColumn.setCellValueFactory(new PropertyValueFactory<>("room"));
+        nameColumn.setCellValueFactory(celldata -> new SimpleStringProperty(String.valueOf(celldata.getValue().getRoom())));
+
 
         TableColumn<Course, Void> editColumn = new TableColumn<>("Edit");
         editColumn.setCellFactory(param -> new ButtonCellCourse("Edit"));
@@ -361,10 +409,10 @@ public class MainApp extends Application {
         participantsColumn.setCellFactory(param -> new ButtonCellCourse("Participants"));
 
         // Add the columns to the table view
-        tableView.getColumns().addAll(nameColumn, roomColumn, editColumn, deleteColumn, participantsColumn);
+        courseTableView.getColumns().addAll(nameColumn, roomColumn, editColumn, deleteColumn, participantsColumn);
 
         // Set the table data
-        tableView.setItems(courseList);
+        courseTableView.setItems(courseList);
 
         // TextField und Button erstellen
         TextField txtField_search = new TextField();
@@ -387,16 +435,16 @@ public class MainApp extends Application {
                 );
 
                 // Setzen der gefilterten Liste als Datenquelle für die TableView
-                tableView.setItems(filteredList);
+                courseTableView.setItems(filteredList);
             } else {
                 // Wenn das Textfeld leer ist, wird die ursprüngliche studentList angezeigt
-                tableView.setItems(courseList);
+                courseTableView.setItems(courseList);
             }
         });
 
         // Event-Handler für Button
         btn_addCourse.setOnAction(event -> {
-            AddCourseView addCourseView = new AddCourseView(courseList);
+            AddCourseView addCourseView = new AddCourseView(courseList, connection);
             addCourseView.start(new Stage());
         });
 
@@ -406,7 +454,7 @@ public class MainApp extends Application {
         hbox.setSpacing(20);
         VBox root = new VBox(15);
         root.setPadding(new Insets(20));
-        root.getChildren().addAll(hbox, tableView);
+        root.getChildren().addAll(hbox, courseTableView);
 
         // Wrap the table view in a scroll pane
         ScrollPane scrollPane = new ScrollPane(root);

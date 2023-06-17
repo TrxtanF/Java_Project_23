@@ -3,6 +3,7 @@ package org.daoimpl;
 import org.dao.GenericDao;
 import org.databaseutils.H2Utils;
 import org.entity.Company;
+import org.entity.Course;
 import org.entity.Student;
 import org.entity.TetraAssociation;
 
@@ -15,6 +16,15 @@ public class Main {
         H2Utils tentativo = new H2Utils();
         GenericDao<Company> company = new CompanyDaoImpl(tentativo.getConnection());
         company.setConnection(tentativo.getConnection());
+
+        GenericDao<Course> course = new CourseDaoImpl(tentativo.getConnection());
+        course.setConnection(tentativo.getConnection());
+
+        List<Course> secondlist = course.getAll();
+        for(Course course1:secondlist){
+            System.out.println(course1.getSubject());
+            System.out.println(course1.getRoom());
+        }
 
         List<Company> list = company.getAll();
         for(Company company1:list){
