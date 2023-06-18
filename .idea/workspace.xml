@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Create full FrontEnd in javafx2 package (only Allocation doesnt work yet)&#10;Remove throw SQL-Exception in DaoChecks and surround with try catch.&#10;Fix Database Problems">
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Edit button functions added to Company section, Starting database connection in course section">
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/CellFactoryCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/CellValueFactoryCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCourseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCourseView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-properties.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlTestEntries.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlTestEntries.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -105,7 +106,7 @@
       <command value="mvn javafx:run" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.main">
     <configuration name="AddStudentView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="application.javafx2.AddStudentView" />
       <module name="Java_Interfaccia" />
@@ -145,12 +146,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoomTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.Testing.RoomTest" />
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="application.javafx.MainApp" />
       <module name="Java_Interfaccia" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.Testing.*" />
+          <option name="PATTERN" value="application.javafx.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -204,9 +205,9 @@
     </configuration>
     <list>
       <item itemvalue="Application.main" />
+      <item itemvalue="Application.MainApp" />
       <item itemvalue="Application.AddStudentView" />
       <item itemvalue="Application.CourseTest" />
-      <item itemvalue="Application.RoomTest" />
       <item itemvalue="Application.StudentTest" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Remote JVM Debug.Unnamed" />
@@ -214,10 +215,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.AddStudentView" />
         <item itemvalue="Application.StudentTest" />
         <item itemvalue="Application.CourseTest" />
-        <item itemvalue="Application.RoomTest" />
       </list>
     </recent_temporary>
   </component>
@@ -363,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686986475024</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Edit button functions added to Company section, Starting database connection in course section">
+      <created>1687039545535</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1687039545535</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,6 +406,27 @@
     <MESSAGE value="New FXML, try to fix" />
     <MESSAGE value="Java Fx UI, trying to create a responsive, userfriendly UI, failing hard" />
     <MESSAGE value="Create full FrontEnd in javafx2 package (only Allocation doesnt work yet)&#10;Remove throw SQL-Exception in DaoChecks and surround with try catch.&#10;Fix Database Problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create full FrontEnd in javafx2 package (only Allocation doesnt work yet)&#10;Remove throw SQL-Exception in DaoChecks and surround with try catch.&#10;Fix Database Problems" />
+    <MESSAGE value="Edit button functions added to Company section, Starting database connection in course section" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit button functions added to Company section, Starting database connection in course section" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java</url>
+          <line>516</line>
+          <properties class="application.javafx2.MainApp" method="getParitcipants">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

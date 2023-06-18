@@ -2,6 +2,7 @@ package application.javafx2;
 
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -29,6 +30,8 @@ import org.inputCheck.CompanyCheck;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class MainApp extends Application {
@@ -45,10 +48,15 @@ public class MainApp extends Application {
     TableView<Course> courseTableView;
 
     ObservableList<Student> studentList;
+
+    TableView<Student> studentTableView;
     ObservableList<Company> companyList =  FXCollections.observableArrayList();
 
     ObservableList<Course> courseList;
     ObservableList<Allocation> allocationList;
+
+
+
 
     public static void main(String[] args) {
         launch(args);
@@ -102,42 +110,47 @@ public class MainApp extends Application {
 
     private ScrollPane createStudentPage() {
 
+        studentTableView = new TableView<>();
         studentList = FXCollections.observableArrayList();
-        studentList.add(new Student(1, "Tristan Finke", 7, 1));
-        studentList.add(new Student(2, "Gianluca Battisti", 8, 1));
-        studentList.add(new Student(3, "Niklas", 8, 1));
 
-        TableView<Student> tableView = new TableView<>();
-        TableColumn<Student, String> nameColumn = new TableColumn<>("Name");
-        nameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
+        String[] columnNames = {"Name", "Java Skills","Company"};
+        String[] buttonNames = {"Edit", "Delete"};
 
-        TableColumn<Student, String> javaSkillsColumn = new TableColumn<>("Java Skills");
-        javaSkillsColumn.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getJavaSkills())));
-
-        TableColumn<Student, String> companyColumn = new TableColumn<>("Company");
-        companyColumn.setCellValueFactory(cellData -> {
-            int companyFk = cellData.getValue().getCompanyFk();
-            String companyName = "";
-
-            for (Company company : companyList) {
-                if (company.getCompanyId() == companyFk) {
-                    companyName = company.getCompanyName();
+        // Erstelle die Spalten
+        CellValueFactoryCreator<Student> valueCreator = (celldata, columnName)  -> {
+            String value = "";
+            switch (columnName) {
+                case "Name":
+                    value = String.valueOf(celldata.getValue().getName());
                     break;
+                case "Java Skills":
+                    value = String.valueOf(celldata.getValue().getJavaSkills());
+                    break;
+                case "Company":
+                    int companyFk = (celldata.getValue().getCompanyFk());
+
+                for (Company company : companyList) {
+                    if (company.getCompanyId() == companyFk) {
+                        value = company.getCompanyName();
+                        break;
+                    }
                 }
+                    break;
+                default:
+                    value= "";
             }
 
-            return new SimpleStringProperty(companyName);
-        });
+            return new SimpleStringProperty(value);
+        };
 
-        TableColumn<Student, Void> editColumn = new TableColumn<>("Edit");
-        editColumn.setCellFactory(param -> new ButtonCellStudent("Edit"));
+        MainUtils.createColumn(columnNames, studentTableView, valueCreator );
 
-        TableColumn<Student, Void> deleteColumn = new TableColumn<>("Delete");
-        deleteColumn.setCellFactory(param -> new ButtonCellStudent("Delete"));
 
-        tableView.getColumns().addAll(nameColumn, javaSkillsColumn, companyColumn, editColumn, deleteColumn);
+        MainUtils.createButtonColumn(buttonNames, studentTableView, buttonName -> new ButtonCellStudent(buttonName));
 
-        tableView.setItems(studentList);
+
+
+        studentTableView.setItems(studentList);
 
         // TextField und Button erstellen
         TextField txtField_search = new TextField();
@@ -153,10 +166,10 @@ public class MainApp extends Application {
                 ObservableList<Student> filteredList = studentList.filtered(student -> student.getName().toLowerCase().contains(text.toLowerCase()));
 
                 // Setzen der gefilterten Liste als Datenquelle für die TableView
-                tableView.setItems(filteredList);
+                studentTableView.setItems(filteredList);
             } else {
                 // Wenn das Textfeld leer ist, wird die ursprüngliche studentList angezeigt
-                tableView.setItems(studentList);
+                studentTableView.setItems(studentList);
             }
         });
 
@@ -173,7 +186,7 @@ public class MainApp extends Application {
         hbox.setSpacing(20);
         VBox root = new VBox(15);
         root.setPadding(new Insets(20));
-        root.getChildren().addAll(hbox, tableView);
+        root.getChildren().addAll(hbox, studentTableView);
 
         // Wrap the table view in a VBox
         //VBox content = new VBox();
@@ -220,18 +233,20 @@ public class MainApp extends Application {
         // Create the table view
         companyTableView = new TableView<>();
 
-        // Define the columns
-        TableColumn<Company, String> nameColumn = new TableColumn<>("Name");
-        nameColumn.setCellValueFactory(celldata -> new SimpleStringProperty(String.valueOf(celldata.getValue().getCompanyName())));
+        String[] columnNames = {"Name"};
+        String[] buttonNames = {"Edit", "Delete"};
 
-        TableColumn<Company, Void> editColumn = new TableColumn<>("Edit");
-        editColumn.setCellFactory(param -> new ButtonCellCompany("Edit"));
+        // Erstelle die Spalten
+        CellValueFactoryCreator<Company> valueCreator = (celldata, columnName)  -> {
+            String value = String.valueOf(celldata.getValue().getCompanyName());
+            return new SimpleStringProperty(value);
+        };
 
-        TableColumn<Company, Void> deleteColumn = new TableColumn<>("Delete");
-        deleteColumn.setCellFactory(param -> new ButtonCellCompany("Delete"));
+        MainUtils.createColumn(columnNames, companyTableView, valueCreator );
 
-        // Add the columns to the table view
-        companyTableView.getColumns().addAll(nameColumn, editColumn, deleteColumn);
+
+        MainUtils.createButtonColumn(buttonNames, companyTableView, buttonName -> new ButtonCellCompany(buttonName));
+
 
         // Set data source for the tabel view
         companyTableView.setItems(companyList);
@@ -380,36 +395,35 @@ public class MainApp extends Application {
         }
     }
 
+
     private ScrollPane createCoursePage() {
 
         courseTableView = new TableView<>();
 
         // Create the company page content
         VBox content = new VBox();
-        Label titleLabel = new Label("Companies");
+        Label titleLabel = new Label("Course");
         content.getChildren().add(titleLabel);
 
-        // Create the table view
+        // Array x table
+        String[] columnNames = {"Subject", "Room"};
+        String[] buttonNames = {"Edit", "Delete", "Participants"};
 
-        // Create the columns
-        TableColumn<Course, String> nameColumn = new TableColumn<>("Course name");
-        nameColumn.setCellValueFactory(celldata -> new SimpleStringProperty(String.valueOf(celldata.getValue().getSubject())));
+        // Erstelle die Spalten
+        CellValueFactoryCreator<Course> valueCreator = (celldata, columnName)  -> {
+            // Replace this with your actual implementation to get the value based on the column name
+            String value = String.valueOf(celldata.getValue().getSubject());
+            return new SimpleStringProperty(value);
+        };
 
-        TableColumn<Course, String> roomColumn = new TableColumn<>("Room");
-        nameColumn.setCellValueFactory(celldata -> new SimpleStringProperty(String.valueOf(celldata.getValue().getRoom())));
+        MainUtils.createColumn(columnNames, courseTableView, valueCreator );
 
 
-        TableColumn<Course, Void> editColumn = new TableColumn<>("Edit");
-        editColumn.setCellFactory(param -> new ButtonCellCourse("Edit"));
+        MainUtils.createButtonColumn(buttonNames, courseTableView, buttonName -> new ButtonCellCourse(buttonName));
 
-        TableColumn<Course, Void> deleteColumn = new TableColumn<>("Delete");
-        deleteColumn.setCellFactory(param -> new ButtonCellCourse("Delete"));
 
-        TableColumn<Course, Void> participantsColumn = new TableColumn<>("Participants");
-        participantsColumn.setCellFactory(param -> new ButtonCellCourse("Participants"));
 
-        // Add the columns to the table view
-        courseTableView.getColumns().addAll(nameColumn, roomColumn, editColumn, deleteColumn, participantsColumn);
+
 
         // Set the table data
         courseTableView.setItems(courseList);

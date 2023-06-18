@@ -65,12 +65,14 @@ public class AddCourseView extends Application {
                     alert.show();
                     System.out.println("Yes");
                 }else{
-                    courseList.addAll(newCourse);
+                    courseList.add(newCourse);
                 }
 
             } catch (Exception e) {
 
             }
+
+            courseList = courseCheck.getAll();
 
 
             // Close the window
