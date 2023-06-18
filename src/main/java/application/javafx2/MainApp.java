@@ -25,7 +25,10 @@ import org.entity.Course;
 import org.entity.Student;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import org.inputCheck.AllocationCheck;
 import org.inputCheck.CompanyCheck;
+import org.inputCheck.CourseCheck;
+import org.inputCheck.StudentCheck;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,27 +39,30 @@ import java.util.Optional;
 
 public class MainApp extends Application {
 
+    // Database and connection
     H2Utils database = new H2Utils();
     Connection connection = database.getConnection();
 
+    // Methods to check user input and interact with the database
+    StudentCheck studentCheck = new StudentCheck(connection);
     CompanyCheck companyCheck = new CompanyCheck(connection);
+    CourseCheck courseCheck = new CourseCheck(connection);
+    AllocationCheck allocationCheck = new AllocationCheck(connection);
 
+    // Data lists
+    ObservableList<Student> studentList = FXCollections.observableArrayList();
+    ObservableList<Company> companyList = FXCollections.observableArrayList();
+    ObservableList<Course> courseList = FXCollections.observableArrayList();
+    ObservableList<Allocation> allocationList = FXCollections.observableArrayList();
+
+    // Tab pane
     private TabPane tabPane;
 
+    // Tables
+    TableView<Student> studentTableView;
     TableView<Company> companyTableView;
 
     TableView<Course> courseTableView;
-
-    ObservableList<Student> studentList;
-
-    TableView<Student> studentTableView;
-    ObservableList<Company> companyList =  FXCollections.observableArrayList();
-
-    ObservableList<Course> courseList;
-    ObservableList<Allocation> allocationList;
-
-
-
 
     public static void main(String[] args) {
         launch(args);
@@ -65,7 +71,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            companyList  = companyCheck.getAll();
+            companyList = companyCheck.getAll();
         } catch (Exception e) {
 
         }
@@ -109,15 +115,16 @@ public class MainApp extends Application {
     }
 
     private ScrollPane createStudentPage() {
-
         studentTableView = new TableView<>();
-        studentList = FXCollections.observableArrayList();
 
-        String[] columnNames = {"Name", "Java Skills","Company"};
+        // Initialize list with data
+        studentList = studentCheck.getAll();
+
+        String[] columnNames = {"Name", "Java Skills", "Company"};
         String[] buttonNames = {"Edit", "Delete"};
 
         // Erstelle die Spalten
-        CellValueFactoryCreator<Student> valueCreator = (celldata, columnName)  -> {
+        CellValueFactoryCreator<Student> valueCreator = (celldata, columnName) -> {
             String value = "";
             switch (columnName) {
                 case "Name":
@@ -128,27 +135,22 @@ public class MainApp extends Application {
                     break;
                 case "Company":
                     int companyFk = (celldata.getValue().getCompanyFk());
-
-                for (Company company : companyList) {
-                    if (company.getCompanyId() == companyFk) {
-                        value = company.getCompanyName();
-                        break;
+                    for (Company company : companyList) {
+                        if (company.getCompanyId() == companyFk) {
+                            value = company.getCompanyName();
+                            break;
+                        }
                     }
-                }
                     break;
                 default:
-                    value= "";
+                    value = "";
             }
-
             return new SimpleStringProperty(value);
         };
 
-        MainUtils.createColumn(columnNames, studentTableView, valueCreator );
-
+        MainUtils.createColumn(columnNames, studentTableView, valueCreator);
 
         MainUtils.createButtonColumn(buttonNames, studentTableView, buttonName -> new ButtonCellStudent(buttonName));
-
-
 
         studentTableView.setItems(studentList);
 
@@ -175,7 +177,7 @@ public class MainApp extends Application {
 
         //Event-Handler für Button
         btn_addStudent.setOnAction(event -> {
-            AddStudentView addStudentView = new AddStudentView(companyList, studentList);
+            AddStudentView addStudentView = new AddStudentView(companyList, studentList, connection);
             addStudentView.start(new Stage());
         });
 
@@ -213,6 +215,23 @@ public class MainApp extends Application {
                     } else if (buttonText.equals("Delete")) {
                         System.out.println("Delete: " + student.getName());
                         // Fügen Sie hier den gewünschten Code für das Löschen hinzu
+                        Alert alert = new Alert(AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmation Dialog");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Are you sure to delete this student?");
+
+                        ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                        ButtonType cancelButton = new ButtonType("Yes", ButtonBar.ButtonData.CANCEL_CLOSE);
+                        alert.getButtonTypes().setAll(okButton, cancelButton);
+
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if (result.isPresent() && result.get() == okButton) {
+                            studentCheck.deleteById(student.getStudentId());
+                            studentList = studentCheck.getAll();
+                            studentTableView.setItems(studentList);
+                        } else {
+                            System.out.println("Clicked cancel");
+                        }
                     }
                 }
             });
@@ -237,12 +256,12 @@ public class MainApp extends Application {
         String[] buttonNames = {"Edit", "Delete"};
 
         // Erstelle die Spalten
-        CellValueFactoryCreator<Company> valueCreator = (celldata, columnName)  -> {
+        CellValueFactoryCreator<Company> valueCreator = (celldata, columnName) -> {
             String value = String.valueOf(celldata.getValue().getCompanyName());
             return new SimpleStringProperty(value);
         };
 
-        MainUtils.createColumn(columnNames, companyTableView, valueCreator );
+        MainUtils.createColumn(columnNames, companyTableView, valueCreator);
 
 
         MainUtils.createButtonColumn(buttonNames, companyTableView, buttonName -> new ButtonCellCompany(buttonName));
@@ -313,7 +332,6 @@ public class MainApp extends Application {
                         TextField companyNameField = new TextField(company.getCompanyName());
 
 
-
                         // popup layout
                         GridPane gridPane = new GridPane();
                         gridPane.add(companyNameLabel, 0, 0);
@@ -334,13 +352,11 @@ public class MainApp extends Application {
                         Optional<ButtonType> result = alert.showAndWait();
 
 
-
-
                         if (result.isPresent() && result.get() == confirmButton) {
                             // L'utente ha confermato, esegui l'azione di modifica qui
                             String newCompanyName = companyNameField.getText();
                             Company updatedComp = new Company(company.getCompanyId(), newCompanyName);
-                            if(!companyCheck.updateById(company.getCompanyId(), updatedComp)){
+                            if (!companyCheck.updateById(company.getCompanyId(), updatedComp)) {
                                 Alert alert2 = new Alert(Alert.AlertType.ERROR);
                                 alert2.setTitle("Invalid Input");
                                 alert2.setHeaderText(null);
@@ -352,33 +368,29 @@ public class MainApp extends Application {
                             companyTableView.setItems(companyList);
 
                         }
-                    }
-                    else if (buttonText.equals("Delete")) {
+                    } else if (buttonText.equals("Delete")) {
                         System.out.println("Delete: " + company.getCompanyName());
                         // Fügen Sie hier den gewünschten Code für das Löschen hinzu
-                        try {
-                            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                            alert.setTitle("Confirmation Dialog");
-                            alert.setHeaderText(null);
-                            alert.setContentText("Are you sure to delete this company?");
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmation Dialog");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Are you sure to delete this company? \nYou can't delete a company if there are students connected to");
 
-                            ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
-                            ButtonType cancelButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-                            alert.getButtonTypes().setAll(okButton, cancelButton);
+                        ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                        ButtonType cancelButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+                        alert.getButtonTypes().setAll(okButton, cancelButton);
 
-                            Optional<ButtonType> result = alert.showAndWait();
-                            if (result.isPresent() && result.get() == okButton) {
-                                companyCheck.deleteById(company.getCompanyId());
-                                companyList = companyCheck.getAll();
-                                companyTableView.setItems(companyList);
-                                System.out.println("OK wurde geklickt");
-                            } else {
-                                // Code ausführen, wenn der Benutzer auf "Abbrechen" klickt oder den Dialog schließt
-                                System.out.println("Abbrechen wurde geklickt oder Dialog geschlossen");
-                            }
-                        } catch (Exception e) {
-                            System.out.println("Failed");
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if (result.isPresent() && result.get() == okButton) {
+                            companyCheck.deleteById(company.getCompanyId());
+                            companyList = companyCheck.getAll();
+                            companyTableView.setItems(companyList);
+                            System.out.println("OK wurde geklickt");
+                        } else {
+                            // Code ausführen, wenn der Benutzer auf "Abbrechen" klickt oder den Dialog schließt
+                            System.out.println("Abbrechen wurde geklickt oder Dialog geschlossen");
                         }
+
                     }
                 }
             });
@@ -397,8 +409,11 @@ public class MainApp extends Application {
 
 
     private ScrollPane createCoursePage() {
-
         courseTableView = new TableView<>();
+
+        //Initialize list with data
+        courseList = courseCheck.getAll();
+        allocationList = allocationCheck.getAll();
 
         // Create the company page content
         VBox content = new VBox();
@@ -410,19 +425,27 @@ public class MainApp extends Application {
         String[] buttonNames = {"Edit", "Delete", "Participants"};
 
         // Erstelle die Spalten
-        CellValueFactoryCreator<Course> valueCreator = (celldata, columnName)  -> {
-            // Replace this with your actual implementation to get the value based on the column name
-            String value = String.valueOf(celldata.getValue().getSubject());
+        CellValueFactoryCreator<Course> valueCreator = (celldata, columnName) -> {
+            String value = "";
+            switch (columnName) {
+                case "Subject":
+                    value = String.valueOf(celldata.getValue().getSubject());
+                    break;
+                case "Room":
+                    value = String.valueOf(celldata.getValue().getRoom());
+                    break;
+                default:
+                    value = "";
+                    //String value = String.valueOf(celldata.getValue().getSubject());
+
+            }
             return new SimpleStringProperty(value);
         };
 
-        MainUtils.createColumn(columnNames, courseTableView, valueCreator );
+        MainUtils.createColumn(columnNames, courseTableView, valueCreator);
 
 
         MainUtils.createButtonColumn(buttonNames, courseTableView, buttonName -> new ButtonCellCourse(buttonName));
-
-
-
 
 
         // Set the table data
@@ -515,14 +538,14 @@ public class MainApp extends Application {
     }
 
     private void getParitcipants(Course course) {
-        allocationList = FXCollections.observableArrayList();
+        /*allocationList = FXCollections.observableArrayList();
         allocationList.add(new Allocation(1, 1, 1));
         allocationList.add(new Allocation(2, 1, 2));
-        allocationList.add(new Allocation(3, 2, 2));
-
+        allocationList.add(new Allocation(3, 2, 2));*/
+        allocationList = allocationCheck.getAll();
         ObservableList<Allocation> courseAllocation = allocationList.filtered(p -> p.getCourseFk() == course.getCourseId());
         if (courseAllocation.size() != 0) {
-            ShowParticipants showParticipants = new ShowParticipants(allocationList, studentList, course);
+            ShowParticipants showParticipants = new ShowParticipants(allocationList, studentList, course, connection);
             showParticipants.start(new Stage());
         } else {
             // Erstelle einen Alert vom Typ INFORMATION
@@ -534,7 +557,7 @@ public class MainApp extends Application {
             // Zeige den Alert und warte, bis der Benutzer ihn schließt
             alert.showAndWait();
 
-            AddParticipants addParticipants = new AddParticipants(allocationList, studentList, course);
+            AddParticipants addParticipants = new AddParticipants(allocationList, studentList, course, connection);
             addParticipants.start(new Stage());
         }
     }

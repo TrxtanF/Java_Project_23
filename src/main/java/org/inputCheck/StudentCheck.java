@@ -104,8 +104,8 @@ public class StudentCheck {
             validationProblem = "Der Name darf nur aus Buchstaben bestehen.";
             return false;
         }
-        if (student.getJavaSkills() < 1 || student.getJavaSkills() > 10){
-            validationProblem = "Die Java Kenntnisse müssen zwischen 1 und 10 liegen.";
+        if (student.getJavaSkills() < 0 || student.getJavaSkills() > 10){
+            validationProblem = "Die Java Kenntnisse müssen zwischen 0 und 10 liegen.";
             return false;
         }
         if (student.getCompanyFk() < 1) {

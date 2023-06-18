@@ -10,16 +10,23 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.entity.Company;
 import org.entity.Student;
+import org.inputCheck.StudentCheck;
+
+import java.sql.Connection;
 
 public class AddStudentView extends Application {
 
     ObservableList<Company> companyList;
     ObservableList<Student> studentList;
     Student newStudent;
+    Connection connection;
+    StudentCheck studentCheck;
 
-    public AddStudentView(ObservableList<Company> companyList, ObservableList<Student> studentList) {
+    public AddStudentView(ObservableList<Company> companyList, ObservableList<Student> studentList, Connection connection) {
         this.companyList = companyList;
         this.studentList = studentList;
+        this.connection = connection;
+        studentCheck = new StudentCheck(connection);
     }
 
     public static void main(String[] args) {
@@ -61,15 +68,33 @@ public class AddStudentView extends Application {
         // Event handler for save button
         saveButton.setOnAction(event -> {
             // Perform save operation
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+
             String name = nameTextField.getText();
             String companyName = companyComboBox.getValue();
-            Company company = companyList.stream().filter(p -> p.getCompanyName().equals(companyName)).findFirst().orElse(null);
-            int javaSkills = (int) skillsSlider.getValue();
+            if(companyName == null){
+                alert.setTitle("Invalid Input");
+                alert.setHeaderText(null);
+                alert.setContentText("A company must be chosen");
+                alert.show();
+            }else{
+                Company company = companyList.stream().filter(p -> p.getCompanyName().equals(companyName)).findFirst().orElse(null);
+                int javaSkills = (int) skillsSlider.getValue();
 
-            newStudent = new Student(4, name, javaSkills, company.getCompanyId());
-            studentList.add(newStudent); // Add the new student to the list
 
 
+                newStudent = new Student(4, name, javaSkills, company.getCompanyId());
+                if (!studentCheck.insert(newStudent)) {
+
+                    alert.setTitle("Invalid Input");
+                    alert.setHeaderText(null);
+                    alert.setContentText(studentCheck.getValidationProblemDetails());
+                    alert.show();
+                    System.out.println(newStudent.getJavaSkills());
+                } else {
+                    studentList.add(newStudent); // Add the new student to the list
+                }
+            }
             // Close the window
             stage.close();
         });

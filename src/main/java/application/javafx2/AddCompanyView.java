@@ -51,22 +51,17 @@ public class AddCompanyView extends Application {
             String companyName = companyNameTextField.getText();
 
             newCompany = new Company(3, companyName);
-            try {
-                if(!companyCheck.insert(newCompany)){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Invalid Input");
-                    alert.setHeaderText(null);
-                    alert.setContentText(companyCheck.getValidationProblemDetails());
-                    alert.show();
-                    System.out.println("Yes");
-                }else{
-                    companyList.add(newCompany);
-                }
 
-            } catch (Exception e) {
-
+            if (!companyCheck.insert(newCompany)) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Invalid Input");
+                alert.setHeaderText(null);
+                alert.setContentText(companyCheck.getValidationProblemDetails());
+                alert.show();
+                System.out.println("Yes");
+            } else {
+                companyList.add(newCompany);
             }
-
 
 
             // Close the window

@@ -47,7 +47,7 @@ public class CourseDaoImpl implements GenericDao<Course> {
         ObservableList<Course> list = FXCollections.observableArrayList();
 
         //SQL-Statement
-        String query = "SELECT * FROM course";
+        String query = "SELECT course_id, subject, room FROM course";
         PreparedStatement ps = connection.prepareStatement(query);
         ResultSet resultSet = ps.executeQuery();
 

@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,17 +15,24 @@ import javafx.stage.Stage;
 import org.entity.Allocation;
 import org.entity.Course;
 import org.entity.Student;
+import org.inputCheck.AllocationCheck;
+
+import java.sql.Connection;
 
 public class ShowParticipants extends Application {
-
+    TableView<Student> tableView;
     ObservableList<Allocation> allocationList;
     ObservableList<Student> studentList;
     private Course course;
+    AllocationCheck allocationCheck;
+    Connection connection;
 
-    public ShowParticipants(ObservableList<Allocation> allocationList, ObservableList<Student> studentList, Course course) {
+    public ShowParticipants(ObservableList<Allocation> allocationList, ObservableList<Student> studentList, Course course, Connection connection) {
         this.allocationList = allocationList;
         this.studentList = studentList;
         this.course = course;
+        this.connection = connection;
+        allocationCheck = new AllocationCheck(connection);
     }
 
     public static void main(String[] args) {
@@ -35,12 +43,15 @@ public class ShowParticipants extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Course Participants");
 
-        TableView<Student> tableView = new TableView<>();
+        tableView = new TableView<>();
 
         TableColumn<Student, String> nameColumn = new TableColumn<>("Name");
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        TableColumn<Student, Void> addActionColumn = new TableColumn<>("Remove");
 
-        tableView.getColumns().add(nameColumn);
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        addActionColumn.setCellFactory(param -> new ButtonCell());
+
+        tableView.getColumns().addAll(nameColumn, addActionColumn);
 
         //Filter allocation List
         ObservableList<Allocation> courseAllocation = allocationList.filtered(p ->
@@ -57,8 +68,9 @@ public class ShowParticipants extends Application {
         // Button "addStudent"
         Button addStudentButton = new Button("addStudent");
         addStudentButton.setOnAction(event -> {
-            AddParticipants addParticipants = new AddParticipants(allocationList, studentList, course);
+            AddParticipants addParticipants = new AddParticipants(allocationList, studentList, course, connection);
             addParticipants.start(new Stage());
+            primaryStage.close();
         });
 
         VBox root = new VBox(20, addStudentButton, tableView);
@@ -68,5 +80,34 @@ public class ShowParticipants extends Application {
         Scene scene = new Scene(root, 300, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private class ButtonCell extends TableCell<Student, Void>{
+        private final Button removeButton = new Button("Remove");
+
+        public ButtonCell(){
+            removeButton.setOnAction(event -> {
+                Student selectedStudent = getTableRow().getItem();
+                if(selectedStudent!=null){
+                    Allocation allocation = allocationList.stream().filter(p -> p.getCourseFk() == course.getCourseId() && p.getStudentFk() == selectedStudent.getStudentId()).findFirst().orElse(null);
+                    if(allocation!=null){
+                        System.out.println("In");
+                        allocationCheck.deleteById(allocation.getAllocationId());
+                        allocationList.remove(allocation);
+                        studentList.remove(selectedStudent);
+                    }
+                    tableView.refresh();
+                }
+            });
+        }
+        @Override
+        protected void updateItem(Void item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty) {
+                setGraphic(null);
+            } else {
+                setGraphic(removeButton);
+            }
+        }
     }
 }

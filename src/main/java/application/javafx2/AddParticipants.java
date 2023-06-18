@@ -14,17 +14,26 @@ import javafx.stage.Stage;
 import org.entity.Allocation;
 import org.entity.Course;
 import org.entity.Student;
+import org.inputCheck.AllocationCheck;
+
+import java.sql.Connection;
 
 public class AddParticipants extends Application {
     TableView<Student> tableView;
     ObservableList<Allocation> allocationList;
     ObservableList<Student> studentList;
+    ObservableList<Student> filteredList;
+    ObservableList<Allocation> courseAllocation;
     private Course course;
+    Connection connection;
+    AllocationCheck allocationCheck;
 
-    public AddParticipants(ObservableList<Allocation> allocationList, ObservableList<Student> studentList, Course course) {
+    public AddParticipants(ObservableList<Allocation> allocationList, ObservableList<Student> studentList, Course course, Connection connection) {
         this.allocationList = allocationList;
         this.studentList = studentList;
         this.course = course;
+        this.connection = connection;
+        allocationCheck = new AllocationCheck(connection);
     }
 
     public static void main(String[] args) {
@@ -46,11 +55,11 @@ public class AddParticipants extends Application {
         tableView.getColumns().addAll(nameColumn, addActionColumn);
 
         //Filter allocation List
-        ObservableList<Allocation> courseAllocation = allocationList.filtered(p ->
+        courseAllocation = allocationList.filtered(p ->
                 p.getCourseFk() == course.getCourseId());
 
         // Filtern der Studentenliste basierend auf der studentId
-        ObservableList<Student> filteredList = studentList.filtered(student ->
+        filteredList = studentList.filtered(student ->
                 courseAllocation.stream()
                         .noneMatch(allocation -> allocation.getStudentFk() == student.getStudentId())
         );
@@ -73,7 +82,7 @@ public class AddParticipants extends Application {
             // Event handler for the add button
             addButton.setOnAction(event -> {
                 // Hole den ausgewählten Studenten
-                Student selectedStudent = tableView.getSelectionModel().getSelectedItem();
+                Student selectedStudent = getTableRow().getItem();
 
                 if (selectedStudent != null) {
 
@@ -81,10 +90,16 @@ public class AddParticipants extends Application {
                     Allocation newAllocation = new Allocation(1, selectedStudent.getStudentId(), course.getCourseId());
 
                     // Füge die neue Allocation zur allocationList hinzu
+                    allocationCheck.insert(newAllocation);
                     allocationList.add(newAllocation);
 
+                    // filteredList.remove(selectedStudent) doesent work so:
+                    filteredList = studentList.filtered(student ->
+                            courseAllocation.stream()
+                                    .noneMatch(allocation -> allocation.getStudentFk() == student.getStudentId())
+                    );
                     // Aktualisiere die Tabelle
-                    tableView.refresh();
+                    tableView.setItems(filteredList);
                 }
             });
         }

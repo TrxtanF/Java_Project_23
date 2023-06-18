@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Edit button functions added to Company section, Starting database connection in course section">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/CellFactoryCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/CellValueFactoryCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainUtils.java" afterDir="false" />
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Create full FrontEnd in javafx2 package (only Allocation doesnt work yet)&#10;Remove throw SQL-Exception in DaoChecks and surround with try catch.&#10;Fix Database Problems">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCourseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCourseView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCompanyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCompanyView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddStudentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddStudentView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/entity/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/ShowParticipants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/ShowParticipants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/inputCheck/StudentCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/inputCheck/StudentCheck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,20 +177,7 @@
     <configuration name="main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="application.javafx2.MainApp" />
       <module name="Java_Interfaccia" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;H:\java\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Java_Project_23" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Java_Project_23" />
-      <option name="filePath" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;E:\JavaFx\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -413,17 +402,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java</url>
-          <line>516</line>
-          <properties class="application.javafx2.MainApp" method="getParitcipants">
+          <url>file://$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java</url>
+          <line>11</line>
+          <properties class="org.daoimpl.Main" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java</url>
-          <line>12</line>
+          <line>9</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
