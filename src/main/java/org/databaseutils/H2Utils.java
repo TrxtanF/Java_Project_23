@@ -20,7 +20,7 @@ public class H2Utils {
 
             Yaml yaml = new Yaml();
             Map<String, Object> data = yaml.load(inputStream);
-            String url = (String) data.get("url");
+            String url = (String) data.get("host");
             System.out.println("Connecting database...");
             // load and register JDBC driver for MySQL Class.forName("com.mysql.jdbc.Driver");
 

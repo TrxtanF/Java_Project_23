@@ -41,4 +41,11 @@ public class Student {
     public int getJavaSkills(){
         return javaSkills;
     }
+
+    public int getCompany() {return companyFk;
+    }
+
+    public void setCompany(Company selectedItem) {
+        this.companyFk = selectedItem.getCompanyId();
+    }
 }

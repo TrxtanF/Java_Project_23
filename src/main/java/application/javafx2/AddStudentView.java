@@ -22,6 +22,12 @@ public class AddStudentView extends Application {
     Connection connection;
     StudentCheck studentCheck;
 
+    private Student student;
+    private TextField nameTextField;
+    private ComboBox<String> companyComboBox;
+    private Slider skillsSlider;
+    private Label skillValueLabel;
+
     public AddStudentView(ObservableList<Company> companyList, ObservableList<Student> studentList, Connection connection) {
         this.companyList = companyList;
         this.studentList = studentList;
@@ -137,5 +143,19 @@ public class AddStudentView extends Application {
         // Show the stage
         stage.setResizable(false);
         stage.show();
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+        // Populate the GUI fields with the student's values
+        nameTextField.setText(student.getName());
+        String companyName = companyList.stream()
+                .filter(c -> c.getCompanyId() == student.getCompanyFk())
+                .map(Company::getCompanyName)
+                .findFirst()
+                .orElse(null);
+        companyComboBox.setValue(companyName);
+        skillsSlider.setValue(student.getJavaSkills());
+        skillValueLabel.setText(String.valueOf(student.getJavaSkills()));
     }
 }

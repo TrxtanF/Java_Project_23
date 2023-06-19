@@ -17,6 +17,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.databaseutils.H2Utils;
 import org.entity.Allocation;
@@ -143,6 +144,7 @@ public class MainApp extends Application {
                         if (company.getCompanyId() == companyFk) {
                             value = company.getCompanyName();
                             break;
+                            //select * from company co where co.company-id = company-fk
                         }
                     }
                     break;
@@ -214,9 +216,15 @@ public class MainApp extends Application {
                 Student student = getTableRow().getItem();
                 if (student != null) {
                     if (buttonText.equals("Edit")) {
-                        System.out.println("Edit: " + student.getName());
-                        // Fügen Sie hier den gewünschten Code für die Bearbeitung hinzu
-                    } else if (buttonText.equals("Delete")) {
+                        EditStudentView editStudentView = new EditStudentView(companyList, studentList, connection);
+                        editStudentView.setStudent(student); // Imposta lo studente da modificare
+
+                        Stage editStudentStage = new Stage();
+                        editStudentStage.initModality(Modality.APPLICATION_MODAL);
+                        editStudentStage.setTitle("Edit Student");
+
+                        editStudentView.start(editStudentStage);
+                    } else if (buttonText.equals("Delete"))  {
                         System.out.println("Delete: " + student.getName());
                         // Fügen Sie hier den gewünschten Code für das Löschen hinzu
                         Alert alert = new Alert(AlertType.CONFIRMATION);
