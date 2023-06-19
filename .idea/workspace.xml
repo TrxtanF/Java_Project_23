@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Create full FrontEnd in javafx2 package (only Allocation doesnt work yet)&#10;Remove throw SQL-Exception in DaoChecks and surround with try catch.&#10;Fix Database Problems">
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Fixed delete in Student Table so you can delete a Student even if he is an a course.&#10;Implements delete funktion in course tabel. You can delete a course now even if the course has participants">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCompanyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCompanyView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCourseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCourseView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddStudentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddStudentView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/ShowParticipants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/ShowParticipants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/inputCheck/CourseCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/inputCheck/CourseCheck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,6 +224,7 @@
       <workItem from="1686128783369" duration="258000" />
       <workItem from="1686131973937" duration="1589000" />
       <workItem from="1686151687409" duration="5891000" />
+      <workItem from="1687186606276" duration="2597000" />
     </task>
     <task id="LOCAL-00001" summary="Create ReadMe">
       <created>1685444186930</created>
@@ -355,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687039545535</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fixed delete in Student Table so you can delete a Student even if he is an a course.&#10;Implements delete funktion in course tabel. You can delete a course now even if the course has participants">
+      <created>1687184342167</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1687184342167</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +402,8 @@
     <MESSAGE value="Java Fx UI, trying to create a responsive, userfriendly UI, failing hard" />
     <MESSAGE value="Create full FrontEnd in javafx2 package (only Allocation doesnt work yet)&#10;Remove throw SQL-Exception in DaoChecks and surround with try catch.&#10;Fix Database Problems" />
     <MESSAGE value="Edit button functions added to Company section, Starting database connection in course section" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit button functions added to Company section, Starting database connection in course section" />
+    <MESSAGE value="Fixed delete in Student Table so you can delete a Student even if he is an a course.&#10;Implements delete funktion in course tabel. You can delete a course now even if the course has participants" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed delete in Student Table so you can delete a Student even if he is an a course.&#10;Implements delete funktion in course tabel. You can delete a course now even if the course has participants" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

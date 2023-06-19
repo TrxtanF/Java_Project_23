@@ -101,7 +101,7 @@ public class CourseCheck {
             return false;
         }
         if (course.getRoom().length() != 4) {
-            validationProblem = "Die Raumangabe muss vier Zeichen lang sein.";
+            validationProblem = "Die Raumangabe muss 3 Zahlen lang sein und es muss ein Gebäude angegeben werden.";
             return false;
         }
         if (!Character.toString(course.getRoom().charAt(3)).matches("^[A-E]+$")) {

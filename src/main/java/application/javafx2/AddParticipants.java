@@ -71,6 +71,7 @@ public class AddParticipants extends Application {
 
         Scene scene = new Scene(root, 400, 400);
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
         // If we do this the insert doesnt work anymore
         /*primaryStage.setOnCloseRequest(event -> {

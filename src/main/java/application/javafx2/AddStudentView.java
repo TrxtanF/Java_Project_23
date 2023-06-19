@@ -37,6 +37,11 @@ public class AddStudentView extends Application {
     public void start(Stage stage) {
         stage.setTitle("Add Student");
 
+        // Labels
+        Label nameLabel = new Label("Name:");
+        Label companyLabel = new Label("Company:");
+        Label skillsLabel = new Label("Java Skills:");
+
         // TextField for name
         TextField nameTextField = new TextField();
         nameTextField.setPromptText("Enter name");
@@ -64,6 +69,22 @@ public class AddStudentView extends Application {
         // Buttons for save and cancel
         Button saveButton = new Button("Save");
         Button cancelButton = new Button("Cancel");
+
+        // Layout for labels and corresponding input fields
+        GridPane inputGridPane = new GridPane();
+        inputGridPane.setHgap(10);
+        inputGridPane.setVgap(10);
+        inputGridPane.addRow(0, nameLabel, nameTextField);
+        inputGridPane.addRow(1, companyLabel, companyComboBox);
+        inputGridPane.addRow(2, skillsLabel);
+        inputGridPane.add(skillsSlider, 1, 2);
+        inputGridPane.add(skillValueLabel, 1, 3);
+        inputGridPane.setAlignment(Pos.CENTER);
+
+        // Layout for save and cancel buttons
+        HBox buttonBox = new HBox(10);
+        buttonBox.getChildren().addAll(saveButton, cancelButton);
+        buttonBox.setAlignment(Pos.CENTER);
 
         // Event handler for save button
         saveButton.setOnAction(event -> {
@@ -104,16 +125,17 @@ public class AddStudentView extends Application {
 
         // Create layout for the scene
         VBox root = new VBox(10); // Use a VBox with spacing of 10 pixels
-        root.getChildren().addAll(nameTextField, companyComboBox, skillsSlider, skillValueLabel, saveButton, cancelButton);
+        root.getChildren().addAll(inputGridPane, buttonBox);
         root.setAlignment(Pos.CENTER);
 
         // Create the scene
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(root, 250, 200);
 
         // Set the scene to the stage
         stage.setScene(scene);
 
         // Show the stage
+        stage.setResizable(false);
         stage.show();
     }
 }

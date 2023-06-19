@@ -6,15 +6,15 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.entity.Company;
 import org.inputCheck.CompanyCheck;
 
-import java.awt.*;
 import java.sql.Connection;
-import java.sql.SQLException;
 
 public class AddCompanyView extends Application {
     ObservableList<Company> companyList;
@@ -37,13 +37,31 @@ public class AddCompanyView extends Application {
     public void start(Stage stage) {
         stage.setTitle("Add Company");
 
+        // Label for company name
+        Label companyNameLabel = new Label("Company name:");
+
         // Textfield for name
         TextField companyNameTextField = new TextField();
         companyNameTextField.setPromptText("Enter name");
 
         // Buttons for save and cancel
-        javafx.scene.control.Button saveButton = new javafx.scene.control.Button("Save");
-        javafx.scene.control.Button cancelButton = new Button("Cancel");
+        Button saveButton = new Button("Save");
+        Button cancelButton = new Button("Cancel");
+
+        // Layout for label and textfield
+        HBox inputBox = new HBox(10);
+        inputBox.getChildren().addAll(companyNameLabel, companyNameTextField);
+        inputBox.setAlignment(Pos.CENTER);
+
+        // Layout for save and cancel buttons
+        HBox buttonBox = new HBox(10);
+        buttonBox.getChildren().addAll(saveButton, cancelButton);
+        buttonBox.setAlignment(Pos.CENTER);
+
+        // Create layout for the scene
+        VBox root = new VBox(10);
+        root.getChildren().addAll(inputBox, buttonBox);
+        root.setAlignment(Pos.CENTER);
 
         // Event handler for save button
         saveButton.setOnAction(event -> {
@@ -63,7 +81,6 @@ public class AddCompanyView extends Application {
                 companyList.add(newCompany);
             }
 
-
             // Close the window
             stage.close();
         });
@@ -71,18 +88,14 @@ public class AddCompanyView extends Application {
         // Event handler for cancel button
         cancelButton.setOnAction(event -> stage.close());
 
-        // Create layout for the scene
-        VBox root = new VBox(10); // Use a VBox with spacing of 10 pixels
-        root.getChildren().addAll(companyNameTextField, saveButton, cancelButton);
-        root.setAlignment(Pos.CENTER);
-
         // Create the scene
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(root, 250, 80);
 
         // Set the scene to the stage
         stage.setScene(scene);
 
         // Show the stage
+        stage.setResizable(false);
         stage.show();
     }
 }
