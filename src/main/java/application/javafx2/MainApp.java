@@ -36,6 +36,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class MainApp extends Application {
 
@@ -70,11 +71,10 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        try {
-            companyList = companyCheck.getAll();
-        } catch (Exception e) {
-
-        }
+        allocationList = allocationCheck.getAll();
+        companyList = companyCheck.getAll();
+        studentList = studentCheck.getAll();
+        courseList = courseCheck.getAll();
 
         primaryStage.setTitle("Student Management System");
 
@@ -131,7 +131,11 @@ public class MainApp extends Application {
                     value = String.valueOf(celldata.getValue().getName());
                     break;
                 case "Java Skills":
-                    value = String.valueOf(celldata.getValue().getJavaSkills());
+                    int javaSkill = celldata.getValue().getJavaSkills();
+                    for (int i = 0; i < javaSkill; i++) {
+                        value += "-";
+                    }
+                    //value = String.valueOf(celldata.getValue().getJavaSkills());
                     break;
                 case "Company":
                     int companyFk = (celldata.getValue().getCompanyFk());
@@ -221,11 +225,17 @@ public class MainApp extends Application {
                         alert.setContentText("Are you sure to delete this student?");
 
                         ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
-                        ButtonType cancelButton = new ButtonType("Yes", ButtonBar.ButtonData.CANCEL_CLOSE);
+                        ButtonType cancelButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
                         alert.getButtonTypes().setAll(okButton, cancelButton);
 
                         Optional<ButtonType> result = alert.showAndWait();
                         if (result.isPresent() && result.get() == okButton) {
+                            ObservableList<Allocation> studentAllocation = allocationList.stream().
+                                    filter(p -> p.getStudentFk() == student.getStudentId())
+                                    .collect(Collectors.toCollection(FXCollections::observableArrayList));
+                            for (Allocation allocation : studentAllocation) {
+                                allocationCheck.deleteById(allocation.getAllocationId());
+                            }
                             studentCheck.deleteById(student.getStudentId());
                             studentList = studentCheck.getAll();
                             studentTableView.setItems(studentList);
@@ -413,7 +423,7 @@ public class MainApp extends Application {
 
         //Initialize list with data
         courseList = courseCheck.getAll();
-        allocationList = allocationCheck.getAll();
+
 
         // Create the company page content
         VBox content = new VBox();
@@ -517,6 +527,27 @@ public class MainApp extends Application {
                     } else if (buttonText.equals("Delete")) {
                         System.out.println("Delete: " + course.getSubject());
                         // Add your code for deleting the course here
+                        Alert alert = new Alert(AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmation Dialog");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Are you sure to delete this course");
+
+                        ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                        ButtonType cancelButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+                        alert.getButtonTypes().setAll(okButton, cancelButton);
+
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if (result.isPresent() && result.get() == okButton) {
+                            ObservableList<Allocation> courseAllocation = allocationList.stream()
+                                    .filter(p -> p.getCourseFk() == course.getCourseId())
+                                    .collect(Collectors.toCollection(FXCollections::observableArrayList));
+                            for (Allocation allocation : courseAllocation) {
+                                allocationCheck.deleteById(allocation.getAllocationId());
+                            }
+                            courseCheck.deleteById(course.getCourseId());
+                            courseList = courseCheck.getAll();
+                            courseTableView.setItems(courseList);
+                        }
                     } else if (buttonText.equals("Participants")) {
                         System.out.println("Participants: " + course.getCourseId());
                         // Add your code for handling participants here

@@ -23,6 +23,8 @@ public class ShowParticipants extends Application {
     TableView<Student> tableView;
     ObservableList<Allocation> allocationList;
     ObservableList<Student> studentList;
+    ObservableList<Student> filteredList;
+    ObservableList<Allocation> courseAllocation;
     private Course course;
     AllocationCheck allocationCheck;
     Connection connection;
@@ -54,11 +56,11 @@ public class ShowParticipants extends Application {
         tableView.getColumns().addAll(nameColumn, addActionColumn);
 
         //Filter allocation List
-        ObservableList<Allocation> courseAllocation = allocationList.filtered(p ->
+        courseAllocation = allocationList.filtered(p ->
                 p.getCourseFk() == course.getCourseId());
 
         // Filtern der Studentenliste basierend auf der allocationId
-        ObservableList<Student> filteredList = studentList.filtered(student ->
+        filteredList = studentList.filtered(student ->
                 courseAllocation.stream()
                         .anyMatch(allocation -> allocation.getStudentFk() == student.getStudentId())
         );
@@ -82,24 +84,28 @@ public class ShowParticipants extends Application {
         primaryStage.show();
     }
 
-    private class ButtonCell extends TableCell<Student, Void>{
+    private class ButtonCell extends TableCell<Student, Void> {
         private final Button removeButton = new Button("Remove");
 
-        public ButtonCell(){
+        public ButtonCell() {
             removeButton.setOnAction(event -> {
                 Student selectedStudent = getTableRow().getItem();
-                if(selectedStudent!=null){
+                if (selectedStudent != null) {
                     Allocation allocation = allocationList.stream().filter(p -> p.getCourseFk() == course.getCourseId() && p.getStudentFk() == selectedStudent.getStudentId()).findFirst().orElse(null);
-                    if(allocation!=null){
-                        System.out.println("In");
+                    if (allocation != null) {
                         allocationCheck.deleteById(allocation.getAllocationId());
                         allocationList.remove(allocation);
-                        studentList.remove(selectedStudent);
+                        // This code doesnt work: filteredList.remove(selectedStudent);
+                        filteredList = studentList.filtered(student ->
+                                courseAllocation.stream()
+                                        .anyMatch(p -> p.getStudentFk() == student.getStudentId())
+                        );
                     }
-                    tableView.refresh();
+                    tableView.setItems(filteredList);
                 }
             });
         }
+
         @Override
         protected void updateItem(Void item, boolean empty) {
             super.updateItem(item, empty);

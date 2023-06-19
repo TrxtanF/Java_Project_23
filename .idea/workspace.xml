@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Create full FrontEnd in javafx2 package (only Allocation doesnt work yet)&#10;Remove throw SQL-Exception in DaoChecks and surround with try catch.&#10;Fix Database Problems">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCompanyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddCompanyView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddStudentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddStudentView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/ShowParticipants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/ShowParticipants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/CourseDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/daoimpl/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/inputCheck/StudentCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/inputCheck/StudentCheck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
