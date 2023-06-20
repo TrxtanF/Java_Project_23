@@ -532,6 +532,14 @@ public class MainApp extends Application {
                     if (buttonText.equals("Edit")) {
                         System.out.println("Edit: " + course.getSubject());
                         // Add your code for editing the course here
+                        EditCourseView editCourseView = new EditCourseView(courseList, course, connection);
+                        try {
+                            editCourseView.start(new Stage());
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+
+
                     } else if (buttonText.equals("Delete")) {
                         System.out.println("Delete: " + course.getSubject());
                         // Add your code for deleting the course here
