@@ -155,8 +155,9 @@ public class EditStudentView extends Application {
             student.setCompanyFk(company.getCompanyId());
             student.setJavaSkills(javaSkills);
 
-            // Aggiorna la lista degli studenti nella tabella
+            // Update the list of students in the table
             studentList.set(studentList.indexOf(student), student);
+            studentCheck.updateById(student.getStudentId(), student);
         }
     }
 }
