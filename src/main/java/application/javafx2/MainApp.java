@@ -194,6 +194,7 @@ public class MainApp extends Application {
         btn_addStudent.setOnAction(event -> {
             AddStudentView addStudentView = new AddStudentView(companyList, studentList, connection);
             addStudentView.start(new Stage());
+            studentList.setAll(studentCheck.getAll());
         });
 
 
