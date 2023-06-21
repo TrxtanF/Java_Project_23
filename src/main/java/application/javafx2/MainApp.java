@@ -2,7 +2,6 @@ package application.javafx2;
 
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -12,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -32,10 +30,6 @@ import org.inputCheck.CourseCheck;
 import org.inputCheck.StudentCheck;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -59,6 +53,9 @@ public class MainApp extends Application {
 
     // Tab pane
     private TabPane tabPane;
+    private ObservableList<Student> originalStudentList;
+    private ObservableList<Student> filteredList;
+
 
     // Tables
     TableView<Student> studentTableView;
@@ -117,9 +114,9 @@ public class MainApp extends Application {
 
     private ScrollPane createStudentPage() {
         studentTableView = new TableView<>();
+        originalStudentList = FXCollections.observableArrayList(studentList);
+        studentList = FXCollections.observableArrayList(studentCheck.getAll());
 
-        // Initialize list with data
-        studentList = studentCheck.getAll();
 
         String[] columnNames = {"Name", "Java Skills", "Company"};
         String[] buttonNames = {"Edit", "Delete"};
@@ -155,8 +152,8 @@ public class MainApp extends Application {
         };
 
         MainUtils.createColumn(columnNames, studentTableView, valueCreator);
+        MainUtils.createButtonColumn(buttonNames, studentTableView, this::createButtonCellStudent);
 
-        MainUtils.createButtonColumn(buttonNames, studentTableView, buttonName -> new ButtonCellStudent(buttonName));
 
         studentTableView.setItems(studentList);
 
@@ -166,20 +163,32 @@ public class MainApp extends Application {
         txtField_search.setPrefWidth(100);
         Button btn_addStudent = new Button("Add student");
 
-        // Event-Handler für den das Search Field
-        txtField_search.setOnKeyReleased(event -> {
-            String text = txtField_search.getText();
-            if (!text.isEmpty()) {
-                // Filtern der Studentenliste basierend auf dem eingegebenen Text
-                ObservableList<Student> filteredList = studentList.filtered(student -> student.getName().toLowerCase().contains(text.toLowerCase()));
 
-                // Setzen der gefilterten Liste als Datenquelle für die TableView
-                studentTableView.setItems(filteredList);
+        // Event-Handler für den das Search Field
+        txtField_search.textProperty().addListener((observable, oldValue, newValue) -> {
+            String text = newValue;
+            ObservableList<Student> filteredList;
+
+            if (!text.isEmpty()) {
+                filteredList = originalStudentList.filtered(student ->
+                        student.getName().toLowerCase().contains(text.toLowerCase())
+                );
             } else {
-                // Wenn das Textfeld leer ist, wird die ursprüngliche studentList angezeigt
-                studentTableView.setItems(studentList);
+                filteredList = originalStudentList;
             }
+
+
+            studentTableView.setItems(filteredList);
+            studentList.setAll(filteredList);
+            for (TableColumn<Student, ?> column : studentTableView.getColumns()) {
+                if (column instanceof TableColumnBase<?, ?>) {
+                    ((TableColumnBase<Student, ?>) column).setVisible(false);
+                    ((TableColumnBase<Student, ?>) column).setVisible(true);
+                }
+            }
+
         });
+
 
         //Event-Handler für Button
         btn_addStudent.setOnAction(event -> {
@@ -206,11 +215,24 @@ public class MainApp extends Application {
 
         return scrollPane;
     }
+    private TableCell<Student, Void> createButtonCellStudent(String buttonText) {
+        ButtonCellStudent cell = new ButtonCellStudent(buttonText);
+        cell.setStudentTableView(studentTableView);
+        cell.setStudentList(studentList);
+        cell.setFilteredList(originalStudentList);
+        return cell;
+    }
 
     private class ButtonCellStudent extends TableCell<Student, Void> {
         private final Button button;
+        private TableView<Student> studentTableView;
+        private ObservableList<Student> studentList;
+        private ObservableList<Student> filteredList;
+
 
         public ButtonCellStudent(String buttonText) {
+
+
             button = new Button(buttonText);
             button.setOnAction(event -> {
                 Student student = getTableRow().getItem();
@@ -237,6 +259,9 @@ public class MainApp extends Application {
                         alert.getButtonTypes().setAll(okButton, cancelButton);
 
                         Optional<ButtonType> result = alert.showAndWait();
+                        studentCheck.deleteById(student.getStudentId());
+                        originalStudentList.remove(student);
+                        filteredList.remove(student);
                         if (result.isPresent() && result.get() == okButton) {
                             ObservableList<Allocation> studentAllocation = allocationList.stream().
                                     filter(p -> p.getStudentFk() == student.getStudentId())
@@ -255,13 +280,25 @@ public class MainApp extends Application {
             });
         }
 
+        public void setStudentTableView(TableView<Student> studentTableView) {
+            this.studentTableView = studentTableView;
+        }
+
+        public void setStudentList(ObservableList<Student> studentList) {
+            this.studentList = studentList;
+        }
+
+        public void setFilteredList(ObservableList<Student> filteredList) {
+            this.filteredList = filteredList;
+        }
+
         @Override
         protected void updateItem(Void item, boolean empty) {
             super.updateItem(item, empty);
-            if (!empty) {
-                setGraphic(button);
-            } else {
+            if (empty || getTableRow() == null || getTableRow().getItem() == null || filteredList == null) {
                 setGraphic(null);
+            } else {
+                setGraphic(button);
             }
         }
     }
@@ -401,9 +438,9 @@ public class MainApp extends Application {
                         Optional<ButtonType> result = alert.showAndWait();
                         if (result.isPresent() && result.get() == okButton) {
                             companyCheck.deleteById(company.getCompanyId());
+                            System.out.println("OK wurde geklickt");
                             companyList = companyCheck.getAll();
                             companyTableView.setItems(companyList);
-                            System.out.println("OK wurde geklickt");
                         } else {
                             // Code ausführen, wenn der Benutzer auf "Abbrechen" klickt oder den Dialog schließt
                             System.out.println("Abbrechen wurde geklickt oder Dialog geschlossen");

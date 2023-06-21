@@ -68,9 +68,9 @@ public class EditStudentView extends Application {
         companyComboBox.setItems(nameList);
         companyComboBox.setPromptText("Select company");
 
-        // Aggiungi un listener per gestire la selezione dell'azienda
+        // company listener
         companyComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            // Aggiorna le informazioni quando viene selezionata un'azienda diversa
+            //  company info update
             updateCompanySelection(newValue);
         });
 
@@ -121,7 +121,7 @@ public class EditStudentView extends Application {
                         .filter(p -> p.getCompanyName().equals(companyName))
                         .findFirst()
                         .orElse(null);
-                // Esegui le azioni necessarie con l'azienda selezionata
+                // actions on company
             }
         }
     }
@@ -150,7 +150,7 @@ public class EditStudentView extends Application {
                     .orElse(null);
             int javaSkills = (int) skillsSlider.getValue();
 
-            // Aggiorna lo studente con le nuove informazioni
+            // Update student
             student.setName(name);
             student.setCompanyFk(company.getCompanyId());
             student.setJavaSkills(javaSkills);
