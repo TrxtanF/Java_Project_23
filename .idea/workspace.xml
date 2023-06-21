@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Make the update to the database on the EditStudentView file.">
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="add student bug fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/MainApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/StudentManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/StudentTow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/controller/AddCourseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/controller/CourseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/controller/PopupController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx/controller/StudentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/EditStudentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/EditStudentView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webapp/css/firsttry.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webapp/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webapp/img/dhbw-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webapp/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webapp/js/script.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -381,7 +368,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687266015659</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Bug search student fixed, deleted unused classes (webapp and javafx)">
+      <created>1687383757080</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1687383757080</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add student bug fixed">
+      <created>1687384090485</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1687384090485</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +420,9 @@
     <MESSAGE value="Edit button functions added to Company section, Starting database connection in course section" />
     <MESSAGE value="Fixed delete in Student Table so you can delete a Student even if he is an a course.&#10;Implements delete funktion in course tabel. You can delete a course now even if the course has participants" />
     <MESSAGE value="Make the update to the database on the EditStudentView file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Make the update to the database on the EditStudentView file." />
+    <MESSAGE value="Bug search student fixed, deleted unused classes (webapp and javafx)" />
+    <MESSAGE value="add student bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="add student bug fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

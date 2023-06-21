@@ -111,6 +111,9 @@ public class MainApp extends Application {
         // Show the primary stage
         primaryStage.show();
     }
+    public void updateMainTable() {
+        studentList.setAll(studentCheck.getAll()); // Aggiorna la lista degli studenti dalla connessione al database
+    }
 
     private ScrollPane createStudentPage() {
         studentTableView = new TableView<>();
@@ -190,12 +193,15 @@ public class MainApp extends Application {
         });
 
 
+
         //Event-Handler für Button
         btn_addStudent.setOnAction(event -> {
             AddStudentView addStudentView = new AddStudentView(companyList, studentList, connection);
             addStudentView.start(new Stage());
-            studentList.setAll(studentCheck.getAll());
+            updateMainTable();
         });
+
+
 
 
         // Erstellen der Scene und Hinzufügen zur Stage
