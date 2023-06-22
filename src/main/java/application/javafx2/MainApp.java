@@ -139,6 +139,7 @@ public class MainApp extends Application {
                     //value = String.valueOf(celldata.getValue().getJavaSkills());
                     break;
                 case "Company":
+                    //companyList = companyCheck.getAll();
                     int companyFk = (celldata.getValue().getCompanyFk());
                     for (Company company : companyList) {
                         if (company.getCompanyId() == companyFk) {

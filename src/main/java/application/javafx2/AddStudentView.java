@@ -10,6 +10,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.entity.Company;
 import org.entity.Student;
+import org.inputCheck.CompanyCheck;
 import org.inputCheck.StudentCheck;
 
 import java.sql.Connection;
@@ -21,6 +22,7 @@ public class AddStudentView extends Application {
     Student newStudent;
     Connection connection;
     StudentCheck studentCheck;
+    CompanyCheck companyCheck;
 
     private Student student;
     private TextField nameTextField;
@@ -33,6 +35,7 @@ public class AddStudentView extends Application {
         this.studentList = studentList;
         this.connection = connection;
         studentCheck = new StudentCheck(connection);
+        companyCheck = new CompanyCheck(connection);
     }
 
     public static void main(String[] args) {
@@ -55,6 +58,7 @@ public class AddStudentView extends Application {
         // ComboBox for company selection
         ComboBox<String> companyComboBox = new ComboBox<>();
         ObservableList<String> nameList = FXCollections.observableArrayList();
+        companyList = companyCheck.getAll();
         for (Company company : companyList) {
             nameList.add(company.getCompanyName());
         }
