@@ -28,23 +28,22 @@ public class EditStudentView extends Application {
     private Connection connection;
     private StudentCheck studentCheck;
     private Student student;
-
     private TextField nameTextField;
     private ComboBox<String> companyComboBox;
     private Slider skillsSlider;
     private Label skillValueLabel;
     private Button saveButton;
+    TableView tableView;
 
     /**
      * Constructs an EditStudentView object with the specified company list, student list, and database connection.
      *
      * @param companyList    the list of companies
-     * @param studentList    the list of students
      * @param connection     the database connection
      */
-    public EditStudentView(ObservableList<Company> companyList, ObservableList<Student> studentList, Connection connection) {
+    public EditStudentView(ObservableList<Company> companyList, Connection connection, TableView tableView) {
+        this.tableView = tableView;
         this.companyList = companyList;
-        this.studentList = studentList;
         this.connection = connection;
         studentCheck = new StudentCheck(connection);
         nameTextField = new TextField();
@@ -70,6 +69,7 @@ public class EditStudentView extends Application {
      */
     @Override
     public void start(Stage stage) {
+        studentList = studentCheck.getAll();
         stage.setTitle("Edit Student");
         stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -178,8 +178,9 @@ public class EditStudentView extends Application {
             student.setJavaSkills(javaSkills);
 
             // Update the list of students in the table
-            studentList.set(studentList.indexOf(student), student);
             studentCheck.updateById(student.getStudentId(), student);
+            studentList = studentCheck.getAll();
+            tableView.setItems(studentList);
         }
     }
 }

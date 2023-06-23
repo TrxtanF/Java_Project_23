@@ -247,7 +247,7 @@ public class MainApp extends Application {
                 Student student = getTableRow().getItem();
                 if (student != null) {
                     if (buttonText.equals("Edit")) {
-                        EditStudentView editStudentView = new EditStudentView(companyList, studentList, connection);
+                        EditStudentView editStudentView = new EditStudentView(companyList,  connection, studentTableView);
                         editStudentView.setStudent(student); // Imposta lo studente da modificare
 
                         Stage editStudentStage = new Stage();
@@ -580,7 +580,7 @@ public class MainApp extends Application {
                     if (buttonText.equals("Edit")) {
                         System.out.println("Edit: " + course.getSubject());
                         // Add your code for editing the course here
-                        EditCourseView editCourseView = new EditCourseView(courseList, course, connection);
+                        EditCourseView editCourseView = new EditCourseView(course, connection, courseTableView);
                         try {
                             editCourseView.start(new Stage());
                         } catch (Exception e) {

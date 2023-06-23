@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Update folder structure. Make single Class for Button Cell in AddParticipant and ShowParticipants. Make it fixed so you can add new Student directly to the rest...">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddViews/AddCourseView2.java" afterDir="false" />
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Fixed search Problems, fixed other...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipantsFolder/AddParticipants2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipantsFolder/AddParticipants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipantsFolder/ButtonCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/AddParticipantsFolder/ButtonCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/AddViews/AddCourseView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/EditViews/EditCourseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/EditViews/EditCourseView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/EditViews/EditStudentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/EditViews/EditStudentView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/ShowParticipantsFolder/ShowParticipants2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/ShowParticipantsFolder/ShowParticipants2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/TetraAssociationImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/TetraAssociation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/inputCheck/CompanyCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/inputCheck/CompanyCheck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +226,7 @@
       <workItem from="1686131973937" duration="1589000" />
       <workItem from="1686151687409" duration="5891000" />
       <workItem from="1687186606276" duration="2597000" />
-      <workItem from="1687525877912" duration="15676000" />
+      <workItem from="1687525877912" duration="18460000" />
     </task>
     <task id="LOCAL-00001" summary="Create ReadMe">
       <created>1685444186930</created>
@@ -397,7 +396,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687536128772</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixed search Problems, fixed other...">
+      <created>1687541603953</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1687541603953</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,7 +444,8 @@
     <MESSAGE value="Bug search student fixed, deleted unused classes (webapp and javafx)" />
     <MESSAGE value="add student bug fixed" />
     <MESSAGE value="Update folder structure. Make single Class for Button Cell in AddParticipant and ShowParticipants. Make it fixed so you can add new Student directly to the rest..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update folder structure. Make single Class for Button Cell in AddParticipant and ShowParticipants. Make it fixed so you can add new Student directly to the rest..." />
+    <MESSAGE value="Fixed search Problems, fixed other..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed search Problems, fixed other..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

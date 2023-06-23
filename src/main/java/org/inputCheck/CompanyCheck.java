@@ -96,8 +96,8 @@ public class CompanyCheck {
 
 
     private boolean check(Company company) {
-        if (!company.getCompanyName().trim().matches("[a-zA-Z\\s]+")) {
-            validationProblem = "Der Name des Unternehmens darf nur aus Buchstaben bestehen.";
+        if (!company.getCompanyName().trim().matches("^(?=.*[a-zA-Z])[a-zA-Z\\d\\s]+$")) {
+            validationProblem = "Der Name des Unternehmens muss mindestens Buchstaben enthalten.";
             return false;
         }
         return true;

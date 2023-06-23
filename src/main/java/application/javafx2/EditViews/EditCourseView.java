@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -25,22 +22,19 @@ import java.sql.Connection;
 
 public class EditCourseView extends Application {
     private ObservableList<Course> courseList;
-    private Connection connection;
     private CourseCheck courseCheck;
     private Course course;
-    private Course updateCourse;
+    private TableView tableView;
 
     /**
      * Constructs an EditCourseView object with the specified course list, course, and database connection.
      *
-     * @param courseList  the list of courses
      * @param course      the course to be edited
      * @param connection  the database connection
      */
-    public EditCourseView(ObservableList<Course> courseList, Course course, Connection connection){
-        this.courseList = courseList;
+    public EditCourseView(Course course, Connection connection, TableView tableView){
+        this.tableView = tableView;
         this.course = course;
-        this.connection = connection;
         courseCheck = new CourseCheck(connection);
     }
 
@@ -76,11 +70,11 @@ public class EditCourseView extends Application {
         buildingComboBox.getItems().addAll("A", "B", "C", "D", "E");
         buildingComboBox.setPromptText("Select building");
 
-        Course initialCourse = courseList.get(0);
-        subjectTextField.setText(initialCourse.getSubject());
-        roomTextField.setText(initialCourse.getRoom().substring(0, 3));
-        if (initialCourse.getRoom().length() >= 4) {
-            String selectedBuilding = initialCourse.getRoom().substring(3, 4);
+        courseList = courseCheck.getAll();
+        subjectTextField.setText(course.getSubject());
+        roomTextField.setText(course.getRoom().substring(0, 3));
+        if (course.getRoom().length() >= 4) {
+            String selectedBuilding = course.getRoom().substring(3, 4);
             buildingComboBox.getSelectionModel().select(selectedBuilding);
         }
 
@@ -98,7 +92,9 @@ public class EditCourseView extends Application {
             course.setRoom(combinedRoom);
             courseCheck.updateById(course.getCourseId(), course);
 
-            courseList.set(courseList.indexOf(course), course);
+            //courseList.set(courseList.indexOf(course), course);
+            courseList = courseCheck.getAll();
+            tableView.setItems(courseList);
 
             stage.close();
         });
