@@ -1,13 +1,10 @@
-package application.javafx2;
+package application.javafx2.AddViews;
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -16,32 +13,31 @@ import org.inputCheck.CompanyCheck;
 
 import java.sql.Connection;
 
-public class AddCompanyView extends Application {
-    ObservableList<Company> companyList;
-    Company newCompany;
-    Connection connection;
+public class AddCompanyView2 extends Application {
+    private CompanyCheck companyCheck;
+    private TableView tableView;
+    TextField companyNameTextField;
 
-    CompanyCheck companyCheck;
-
-    public AddCompanyView(ObservableList<Company> companyList, Connection connection) {
-        this.companyList = companyList;
-        this.connection = connection;
+    public AddCompanyView2(Connection connection, TableView tableView){
         companyCheck = new CompanyCheck(connection);
+        this.tableView = tableView;
     }
-
     public static void main(String[] args) {
         launch(args);
     }
-
     @Override
     public void start(Stage stage) {
+        run(stage);
+    }
+
+    private void run(Stage stage){
         stage.setTitle("Add Company");
 
         // Label for company name
         Label companyNameLabel = new Label("Company name:");
 
         // Textfield for name
-        TextField companyNameTextField = new TextField();
+        companyNameTextField = new TextField();
         companyNameTextField.setPromptText("Enter name");
 
         // Buttons for save and cancel
@@ -65,23 +61,7 @@ public class AddCompanyView extends Application {
 
         // Event handler for save button
         saveButton.setOnAction(event -> {
-            // Perform save operation
-            String companyName = companyNameTextField.getText();
-
-            newCompany = new Company(3, companyName);
-
-            if (!companyCheck.insert(newCompany)) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Invalid Input");
-                alert.setHeaderText(null);
-                alert.setContentText(companyCheck.getValidationProblemDetails());
-                alert.show();
-                System.out.println("Yes");
-            } else {
-                companyList.add(newCompany);
-            }
-
-            // Close the window
+            clickSave();
             stage.close();
         });
 
@@ -97,5 +77,26 @@ public class AddCompanyView extends Application {
         // Show the stage
         stage.setResizable(false);
         stage.show();
+    }
+
+    private void clickSave(){
+        String companyName = companyNameTextField.getText();
+
+        Company company = new Company(1, companyName);
+
+        if(companyCheck.insert(company)){
+            ObservableList<Company> list = companyCheck.getAll();
+            tableView.setItems(list);
+        }else{
+            throwAllert();
+        }
+    }
+
+    private void throwAllert(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid Input");
+        alert.setHeaderText(null);
+        alert.setContentText(companyCheck.getValidationProblemDetails());
+        alert.show();
     }
 }

@@ -1,4 +1,4 @@
-package application.javafx2;
+package application.javafx2.AddViews;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -6,7 +6,9 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.entity.Company;
 import org.entity.Student;
@@ -15,35 +17,25 @@ import org.inputCheck.StudentCheck;
 
 import java.sql.Connection;
 
-public class AddStudentView extends Application {
+public class AddStudentView2 extends Application {
+    private StudentCheck studentCheck;
+    private CompanyCheck companyCheck;
+    private TableView tableView;
 
-    ObservableList<Company> companyList;
-    ObservableList<Student> studentList;
-    Student newStudent;
-    Connection connection;
-    StudentCheck studentCheck;
-    CompanyCheck companyCheck;
-
-    private Student student;
-    private TextField nameTextField;
-    private ComboBox<String> companyComboBox;
-    private Slider skillsSlider;
-    private Label skillValueLabel;
-
-    public AddStudentView(ObservableList<Company> companyList, ObservableList<Student> studentList, Connection connection) {
-        this.companyList = companyList;
-        this.studentList = studentList;
-        this.connection = connection;
+    public AddStudentView2(Connection connection, TableView tableView){
         studentCheck = new StudentCheck(connection);
         companyCheck = new CompanyCheck(connection);
+        this.tableView = tableView;
     }
-
     public static void main(String[] args) {
         launch(args);
     }
-
     @Override
     public void start(Stage stage) {
+        run(stage);
+    }
+
+    private void run(Stage stage){
         stage.setTitle("Add Student");
 
         // Labels
@@ -57,12 +49,10 @@ public class AddStudentView extends Application {
 
         // ComboBox for company selection
         ComboBox<String> companyComboBox = new ComboBox<>();
-        ObservableList<String> nameList = FXCollections.observableArrayList();
-        companyList = companyCheck.getAll();
-        for (Company company : companyList) {
-            nameList.add(company.getCompanyName());
-        }
-        companyComboBox.setItems(nameList);
+        ObservableList<Company> companyList = companyCheck.getAll();
+        ObservableList<String> companyNameList = FXCollections.observableArrayList();
+        companyList.forEach(company -> companyNameList.add(company.getCompanyName()));
+        companyComboBox.setItems(companyNameList);
         companyComboBox.setPromptText("Select company");
 
         // Slider for Java skills
@@ -98,35 +88,15 @@ public class AddStudentView extends Application {
 
         // Event handler for save button
         saveButton.setOnAction(event -> {
-            // Perform save operation
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-
+            // Get Data for Student
             String name = nameTextField.getText();
-            String companyName = companyComboBox.getValue();
-            if(companyName == null){
-                alert.setTitle("Invalid Input");
-                alert.setHeaderText(null);
-                alert.setContentText("A company must be chosen");
-                alert.show();
-            }else{
-                Company company = companyList.stream().filter(p -> p.getCompanyName().equals(companyName)).findFirst().orElse(null);
-                int javaSkills = (int) skillsSlider.getValue();
+            int javaSkills = (int) skillsSlider.getValue();
+            Company company = companyList.stream().filter(p -> p.getCompanyName().equals(companyComboBox.getValue())).findFirst().orElse(null);
 
+            // Create Student
+            Student student = new Student(1, name, javaSkills, company.getCompanyId());
 
-
-                newStudent = new Student(4, name, javaSkills, company.getCompanyId());
-                if (!studentCheck.insert(newStudent)) {
-
-                    alert.setTitle("Invalid Input");
-                    alert.setHeaderText(null);
-                    alert.setContentText(studentCheck.getValidationProblemDetails());
-                    alert.show();
-                    System.out.println(newStudent.getJavaSkills());
-                } else {
-                    studentList.add(newStudent); // Add the new student to the list
-                }
-            }
-            // Close the window
+            clickSave(student);
             stage.close();
         });
 
@@ -149,17 +119,21 @@ public class AddStudentView extends Application {
         stage.show();
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
-        // Populate the GUI fields with the student's values
-        nameTextField.setText(student.getName());
-        String companyName = companyList.stream()
-                .filter(c -> c.getCompanyId() == student.getCompanyFk())
-                .map(Company::getCompanyName)
-                .findFirst()
-                .orElse(null);
-        companyComboBox.setValue(companyName);
-        skillsSlider.setValue(student.getJavaSkills());
-        skillValueLabel.setText(String.valueOf(student.getJavaSkills()));
+    private void clickSave(Student student){
+        if(studentCheck.insert(student)){
+            System.out.println("Student FK: "+student.getCompanyFk());
+            ObservableList<Student> studentList = studentCheck.getAll();
+            tableView.setItems(studentList);
+        }else{
+            throwAllert();
+        }
+    }
+
+    private void throwAllert(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid Input");
+        alert.setHeaderText(null);
+        alert.setContentText(studentCheck.getValidationProblemDetails());
+        alert.show();
     }
 }

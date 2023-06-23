@@ -1,5 +1,13 @@
 package application.javafx2;
 
+import application.javafx2.AddParticipantsFolder.AddParticipants2;
+import application.javafx2.AddViews.AddCourseView;
+import application.javafx2.EditViews.EditCourseView;
+import application.javafx2.EditViews.EditStudentView;
+import application.javafx2.Interfaces.CellValueFactoryCreator;
+import application.javafx2.ShowParticipantsFolder.ShowParticipants2;
+import application.javafx2.AddViews.AddCompanyView2;
+import application.javafx2.AddViews.AddStudentView2;
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -139,7 +147,7 @@ public class MainApp extends Application {
                     //value = String.valueOf(celldata.getValue().getJavaSkills());
                     break;
                 case "Company":
-                    //companyList = companyCheck.getAll();
+                    companyList = companyCheck.getAll();
                     int companyFk = (celldata.getValue().getCompanyFk());
                     for (Company company : companyList) {
                         if (company.getCompanyId() == companyFk) {
@@ -197,9 +205,10 @@ public class MainApp extends Application {
 
         //Event-Handler für Button
         btn_addStudent.setOnAction(event -> {
-            AddStudentView addStudentView = new AddStudentView(companyList, studentList, connection);
+            //AddStudentView addStudentView = new AddStudentView(companyList, studentList, connection, studentTableView);
+            AddStudentView2 addStudentView = new AddStudentView2(connection, studentTableView);
             addStudentView.start(new Stage());
-            updateMainTable();
+            //updateMainTable();
         });
 
 
@@ -267,7 +276,6 @@ public class MainApp extends Application {
                         alert.getButtonTypes().setAll(okButton, cancelButton);
 
                         Optional<ButtonType> result = alert.showAndWait();
-                        studentCheck.deleteById(student.getStudentId());
                         originalStudentList.remove(student);
                         filteredList.remove(student);
                         if (result.isPresent() && result.get() == okButton) {
@@ -360,7 +368,8 @@ public class MainApp extends Application {
 
         // Event-Handler für Button
         btn_addCompany.setOnAction(event -> {
-            AddCompanyView addCompanyView = new AddCompanyView(companyList, connection);
+            //AddCompanyView addCompanyView = new AddCompanyView(companyList, connection, companyTableView);
+            AddCompanyView2 addCompanyView = new AddCompanyView2(connection, companyTableView);
             addCompanyView.start(new Stage());
         });
 
@@ -429,7 +438,7 @@ public class MainApp extends Application {
                             }
                             companyList = companyCheck.getAll();
                             companyTableView.setItems(companyList);
-
+                            studentTableView.refresh();
                         }
                     } else if (buttonText.equals("Delete")) {
                         System.out.println("Delete: " + company.getCompanyName());
@@ -637,7 +646,8 @@ public class MainApp extends Application {
         allocationList = allocationCheck.getAll();
         ObservableList<Allocation> courseAllocation = allocationList.filtered(p -> p.getCourseFk() == course.getCourseId());
         if (courseAllocation.size() != 0) {
-            ShowParticipants showParticipants = new ShowParticipants(allocationList, studentList, course, connection);
+            //ShowParticipants showParticipants = new ShowParticipants(allocationList, studentList, course, connection);
+            ShowParticipants2 showParticipants = new ShowParticipants2(connection, course);
             showParticipants.start(new Stage());
         } else {
             // Erstelle einen Alert vom Typ INFORMATION
@@ -649,7 +659,8 @@ public class MainApp extends Application {
             // Zeige den Alert und warte, bis der Benutzer ihn schließt
             alert.showAndWait();
 
-            AddParticipants addParticipants = new AddParticipants(allocationList, studentList, course, connection);
+            //AddParticipants addParticipants = new AddParticipants(allocationList, studentList, course, connection);
+            AddParticipants2 addParticipants = new AddParticipants2(connection, course);
             addParticipants.start(new Stage());
         }
     }

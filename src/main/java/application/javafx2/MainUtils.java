@@ -1,8 +1,9 @@
 package application.javafx2;
 
+import application.javafx2.Interfaces.CellFactoryCreator;
+import application.javafx2.Interfaces.CellValueFactoryCreator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import org.entity.Course;
 
 public class MainUtils {
 
@@ -27,6 +28,5 @@ public class MainUtils {
             columns[i].setCellValueFactory(celldata -> valueCreator.getValue(celldata, columnNames[index]));
             tableView.getColumns().add(columns[i]);
         }
-
     }
 }

@@ -1,4 +1,4 @@
-package application.javafx2;
+package application.javafx2.EditViews;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;

@@ -1,4 +1,4 @@
-package application.javafx2;
+package application.javafx2.AddViews;
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;

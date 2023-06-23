@@ -1,4 +1,4 @@
-package application.javafx2;
+package application.javafx2.Interfaces;
 
 import javafx.scene.control.TableCell;
 
