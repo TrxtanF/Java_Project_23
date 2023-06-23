@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Fixed search Problems, fixed other...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/EditViews/EditCourseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/EditViews/EditCourseView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/EditViews/EditStudentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/EditViews/EditStudentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/javafx2/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/daoimpl/TetraAssociationImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/entity/TetraAssociation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/inputCheck/CompanyCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/inputCheck/CompanyCheck.java" afterDir="false" />
+    <list default="true" id="cb77aafd-f0ae-4d50-9c33-a0c41b66d7b7" name="Changes" comment="Fixed added new and update them">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AddCourse.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AddStudentPopUp.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Coursefx.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Studentfx.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +222,7 @@
       <workItem from="1686131973937" duration="1589000" />
       <workItem from="1686151687409" duration="5891000" />
       <workItem from="1687186606276" duration="2597000" />
-      <workItem from="1687525877912" duration="18460000" />
+      <workItem from="1687525877912" duration="18639000" />
     </task>
     <task id="LOCAL-00001" summary="Create ReadMe">
       <created>1685444186930</created>
@@ -403,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687541603953</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Fixed added new and update them">
+      <created>1687544404322</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1687544404322</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +448,8 @@
     <MESSAGE value="add student bug fixed" />
     <MESSAGE value="Update folder structure. Make single Class for Button Cell in AddParticipant and ShowParticipants. Make it fixed so you can add new Student directly to the rest..." />
     <MESSAGE value="Fixed search Problems, fixed other..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed search Problems, fixed other..." />
+    <MESSAGE value="Fixed added new and update them" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed added new and update them" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
