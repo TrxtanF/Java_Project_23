@@ -1,7 +1,7 @@
 package application.javafx2;
 
-import application.javafx2.AddParticipantsFolder.AddParticipants2;
-import application.javafx2.AddViews.AddCourseView;
+import application.javafx2.AddParticipantsFolder.AddParticipants;
+import application.javafx2.AddViews.AddCourseView2;
 import application.javafx2.EditViews.EditCourseView;
 import application.javafx2.EditViews.EditStudentView;
 import application.javafx2.Interfaces.CellValueFactoryCreator;
@@ -77,6 +77,10 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        run(primaryStage);
+    }
+
+    private void run(Stage primaryStage){
         allocationList = allocationCheck.getAll();
         companyList = companyCheck.getAll();
         studentList = studentCheck.getAll();
@@ -128,7 +132,6 @@ public class MainApp extends Application {
         originalStudentList = FXCollections.observableArrayList(studentList);
         studentList = FXCollections.observableArrayList(studentCheck.getAll());
 
-
         String[] columnNames = {"Name", "Java Skills", "Company"};
         String[] buttonNames = {"Edit", "Delete"};
 
@@ -166,7 +169,6 @@ public class MainApp extends Application {
         MainUtils.createColumn(columnNames, studentTableView, valueCreator);
         MainUtils.createButtonColumn(buttonNames, studentTableView, this::createButtonCellStudent);
 
-
         studentTableView.setItems(studentList);
 
         // TextField und Button erstellen
@@ -189,7 +191,6 @@ public class MainApp extends Application {
                 filteredList = originalStudentList;
             }
 
-
             studentTableView.setItems(filteredList);
             studentList.setAll(filteredList);
             for (TableColumn<Student, ?> column : studentTableView.getColumns()) {
@@ -198,10 +199,7 @@ public class MainApp extends Application {
                     ((TableColumnBase<Student, ?>) column).setVisible(true);
                 }
             }
-
         });
-
-
 
         //Event-Handler für Button
         btn_addStudent.setOnAction(event -> {
@@ -211,9 +209,6 @@ public class MainApp extends Application {
             //updateMainTable();
         });
 
-
-
-
         // Erstellen der Scene und Hinzufügen zur Stage
         HBox hbox = new HBox();
         hbox.getChildren().addAll(txtField_search, btn_addStudent);
@@ -222,16 +217,13 @@ public class MainApp extends Application {
         root.setPadding(new Insets(20));
         root.getChildren().addAll(hbox, studentTableView);
 
-        // Wrap the table view in a VBox
-        //VBox content = new VBox();
-        //content.getChildren().add(tableView);
-
         // Wrap the content in a scroll pane
         ScrollPane scrollPane = new ScrollPane(root);
         scrollPane.setFitToWidth(true);
 
         return scrollPane;
     }
+
     private TableCell<Student, Void> createButtonCellStudent(String buttonText) {
         ButtonCellStudent cell = new ButtonCellStudent(buttonText);
         cell.setStudentTableView(studentTableView);
@@ -364,11 +356,11 @@ public class MainApp extends Application {
                 // Wenn das Textfeld leer ist, wird die ursprüngliche studentList angezeigt
                 companyTableView.setItems(companyList);
             }
+            companyTableView.refresh();
         });
 
         // Event-Handler für Button
         btn_addCompany.setOnAction(event -> {
-            //AddCompanyView addCompanyView = new AddCompanyView(companyList, connection, companyTableView);
             AddCompanyView2 addCompanyView = new AddCompanyView2(connection, companyTableView);
             addCompanyView.start(new Stage());
         });
@@ -549,12 +541,14 @@ public class MainApp extends Application {
                 // Wenn das Textfeld leer ist, wird die ursprüngliche studentList angezeigt
                 courseTableView.setItems(courseList);
             }
+            courseTableView.refresh();
         });
 
         // Event-Handler für Button
         btn_addCourse.setOnAction(event -> {
-            AddCourseView addCourseView = new AddCourseView(courseList, connection);
+            AddCourseView2 addCourseView = new AddCourseView2(connection, courseTableView);
             addCourseView.start(new Stage());
+            System.out.println("Ja");
         });
 
         // Erstellen der Scene und Hinzufügen zur Stage
@@ -608,6 +602,7 @@ public class MainApp extends Application {
 
                         Optional<ButtonType> result = alert.showAndWait();
                         if (result.isPresent() && result.get() == okButton) {
+                            allocationList = allocationCheck.getAll();
                             ObservableList<Allocation> courseAllocation = allocationList.stream()
                                     .filter(p -> p.getCourseFk() == course.getCourseId())
                                     .collect(Collectors.toCollection(FXCollections::observableArrayList));
@@ -639,29 +634,28 @@ public class MainApp extends Application {
     }
 
     private void getParitcipants(Course course) {
-        /*allocationList = FXCollections.observableArrayList();
-        allocationList.add(new Allocation(1, 1, 1));
-        allocationList.add(new Allocation(2, 1, 2));
-        allocationList.add(new Allocation(3, 2, 2));*/
         allocationList = allocationCheck.getAll();
         ObservableList<Allocation> courseAllocation = allocationList.filtered(p -> p.getCourseFk() == course.getCourseId());
         if (courseAllocation.size() != 0) {
-            //ShowParticipants showParticipants = new ShowParticipants(allocationList, studentList, course, connection);
             ShowParticipants2 showParticipants = new ShowParticipants2(connection, course);
             showParticipants.start(new Stage());
         } else {
-            // Erstelle einen Alert vom Typ INFORMATION
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("No participants");
-            alert.setHeaderText(null);
-            alert.setContentText("So far there are no students in this course");
-
-            // Zeige den Alert und warte, bis der Benutzer ihn schließt
-            alert.showAndWait();
+            showAllertNoParticipants();
 
             //AddParticipants addParticipants = new AddParticipants(allocationList, studentList, course, connection);
-            AddParticipants2 addParticipants = new AddParticipants2(connection, course);
+            AddParticipants addParticipants = new AddParticipants(connection, course);
             addParticipants.start(new Stage());
         }
+    }
+
+    private void showAllertNoParticipants(){
+        // Erstelle einen Alert vom Typ INFORMATION
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("No participants");
+        alert.setHeaderText(null);
+        alert.setContentText("At the moment there are no students taking this course yet");
+
+        // Zeige den Alert und warte, bis der Benutzer ihn schließt
+        alert.showAndWait();
     }
 }

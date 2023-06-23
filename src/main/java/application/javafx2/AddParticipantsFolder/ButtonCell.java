@@ -9,7 +9,7 @@ import org.entity.Student;
 public class ButtonCell extends TableCell<Student, Void> {
     private final Button addButton = new Button("Add");
 
-    public ButtonCell(AddParticipants2 addParticipants2) {
+    public ButtonCell(AddParticipants addParticipants2) {
         // Event handler for the add button
         addButton.setOnAction(event -> {
             // Hole den ausgewählten Studenten

@@ -17,6 +17,11 @@ import javafx.scene.control.Label;
 
 import java.sql.Connection;
 
+/**
+ * The EditStudentView class is responsible for displaying a form to edit student details using JavaFX.
+ * It allows the user to modify the student's name, associated company, and Java skills, and save the changes.
+ */
+
 public class EditStudentView extends Application {
     private ObservableList<Company> companyList;
     private ObservableList<Student> studentList;
@@ -30,6 +35,13 @@ public class EditStudentView extends Application {
     private Label skillValueLabel;
     private Button saveButton;
 
+    /**
+     * Constructs an EditStudentView object with the specified company list, student list, and database connection.
+     *
+     * @param companyList    the list of companies
+     * @param studentList    the list of students
+     * @param connection     the database connection
+     */
     public EditStudentView(ObservableList<Company> companyList, ObservableList<Student> studentList, Connection connection) {
         this.companyList = companyList;
         this.studentList = studentList;
@@ -42,10 +54,20 @@ public class EditStudentView extends Application {
 
     }
 
+    /**
+     * The main entry point for the application.
+     *
+     * @param args  command-line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * Initializes and sets up the stage for editing the student.
+     *
+     * @param stage  the primary stage for the JavaFX application
+     */
     @Override
     public void start(Stage stage) {
         stage.setTitle("Edit Student");

@@ -5,11 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -19,18 +15,13 @@ import org.inputCheck.CourseCheck;
 
 import java.sql.Connection;
 
-public class AddCourseView extends Application {
-    ObservableList<Course> courseList;
-    Course newCourse;
+public class AddCourseView2 extends Application {
+    private CourseCheck courseCheck;
+    private TableView tableView;
 
-    Connection connection;
-
-    CourseCheck courseCheck;
-
-    public AddCourseView(ObservableList<Course> courseList, Connection connection) {
-        this.courseList = courseList;
-        this.connection = connection;
+    public AddCourseView2(Connection connection, TableView tableView) {
         courseCheck = new CourseCheck(connection);
+        this.tableView = tableView;
     }
 
     public static void main(String[] args) {
@@ -39,22 +30,29 @@ public class AddCourseView extends Application {
 
     @Override
     public void start(Stage stage) {
+        run(stage);
+    }
+
+    private void run(Stage stage) {
         stage.setTitle("Add Course");
 
         // Label for subject
         Label subjectLabel = new Label("Subject:");
+
         // TextField for subject
         TextField subjectTextField = new TextField();
         subjectTextField.setPromptText("Enter subject");
 
         // Label for room
         Label roomLabel = new Label("Room:");
+
         // TextField for room
         TextField roomTextField = new TextField();
         roomTextField.setPromptText("Enter room");
 
         // Label for building
         Label buildingLabel = new Label("Building:");
+
         // ComboBox for building selection
         ComboBox<String> buildingComboBox = new ComboBox<>();
         buildingComboBox.getItems().addAll("A", "B", "C", "D", "E");
@@ -64,7 +62,6 @@ public class AddCourseView extends Application {
         Button saveButton = new Button("Save");
         Button cancelButton = new Button("Cancel");
 
-        // Event handler for save button
         saveButton.setOnAction(event -> {
             // Perform save operation
             String subject = subjectTextField.getText();
@@ -73,25 +70,17 @@ public class AddCourseView extends Application {
 
             String combinedRoom = room + building;
 
-            newCourse = new Course(3, subject, combinedRoom);
+            Course course = new Course(1, subject, combinedRoom);
 
-            if (!courseCheck.insert(newCourse)) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Invalid Input");
-                alert.setHeaderText(null);
-                alert.setContentText(courseCheck.getValidationProblemDetails());
-                alert.show();
-                System.out.println("Yes");
+            if (courseCheck.insert(course)) {
+                ObservableList<Course> courseList = courseCheck.getAll();
+                tableView.setItems(courseList);
             } else {
-                courseList.add(newCourse);
+                throwAllert();
             }
 
-            courseList = courseCheck.getAll();
-
-            // Close the window
             stage.close();
         });
-
         // Event handler for cancel button
         cancelButton.setOnAction(event -> stage.close());
 
@@ -129,5 +118,13 @@ public class AddCourseView extends Application {
         // Show the stage
         stage.setResizable(false);
         stage.show();
+    }
+
+    private void throwAllert() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid Input");
+        alert.setHeaderText(null);
+        alert.setContentText(courseCheck.getValidationProblemDetails());
+        alert.show();
     }
 }
